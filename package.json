@@ -11,9 +11,15 @@
   },
   "dependencies": {
     "@egjs/react-flicking": "^4.12.0",
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "d3-geo": "^3.1.1",
     "keen-slider": "^6.8.6",
+    "leaflet": "^1.9.4",
     "localforage": "^1.10.0",
     "match-sorter": "^8.0.0",
+    "pigeon-maps": "^0.22.1",
     "react": "^18.3.1",
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^18.3.1",
@@ -21,12 +27,14 @@
     "react-icons": "^5.4.0",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^7.1.1",
+    "react-simple-maps": "^3.0.0",
     "react-slick": "^0.30.3",
     "react-toastify": "^11.0.3",
     "simple-parallax-js": "^6.0.1",
     "slick-carousel": "^1.8.1",
     "sort-by": "^1.2.0",
-    "swiper": "^11.2.1"
+    "swiper": "^11.2.1",
+    "topojson-client": "^3.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
