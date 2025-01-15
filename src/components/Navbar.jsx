@@ -8,7 +8,7 @@ export default function Navbar() {
         <li><NavLink to={'/apartment'}>Apartment</NavLink></li>
     </>
     return (
-        <nav className="navbar bg-design-color py-4">
+        <nav className="navbar bg-design-color">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
