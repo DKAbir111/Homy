@@ -1,22 +1,49 @@
 import { useState } from 'react';
-import { MdFileUpload } from 'react-icons/md';
 import { FcGoogle } from 'react-icons/fc';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
+import { updateProfile } from 'firebase/auth';
+import auth from '../../Firebase/firebase.init';
+import photoUpload from '../../utils/photoUpload';
+
 export default function Register() {
+    const navigate = useNavigate()
     const [showPassword, setShowPassword] = useState(false);
+    //authinfo
+    const { createUser } = useAuth()
     //hook-form
     const {
         register,
         handleSubmit,
-        watch,
         formState: { errors },
     } = useForm()
 
     //submit form
-    const onSubmit = (data) => console.log(data)
+    const onSubmit = async (userInfo) => {
+        const name = userInfo.name
+        const email = userInfo.email
+        const password = userInfo.password
+        const photo = userInfo.photo[0]
+        const imageUrl = await photoUpload(photo)
+        // call create user
 
+        createUser(email, password)
+            .then(res => {
+                if (res.user.email) {
+                    updateProfile(auth.currentUser, {
+                        displayName: name, photoURL: imageUrl
+                    })
+                    toast.success("User created successfully!")
+                    navigate('/')
+                }
+            })
+            .catch(err => {
+                console.log(err)
+                toast.error(err)
+            })
+    }
 
     const handleGoogleSignIn = () => {
         // Add your Google sign-in logic here
@@ -58,19 +85,8 @@ export default function Register() {
 
                     {/* Photo URL Input */}
                     <div className="form-control relative">
-                        <label className="label text-sm font-semibold ">Profile Picture URL</label>
-                        <input
-                            type="text"
-                            name="photo"
-                            {...register("photo", { required: true })}
-                            placeholder="Provide a profile picture URL"
-                            className="input input-bordered rounded-sm w-full py-3 px-4 border-[#fbddd1] focus:outline-none focus:border-[#]"
-                        // required
-                        />
-                        <input type="file" className="hidden" name="file" />
-                        <span className="btn btn-sm absolute bg-white shadow-none border-none right-3 top-12">
-                            <MdFileUpload className="" />
-                        </span>
+                        <label className="label text-sm font-semibold ">Upload Profile Picture</label>
+                        <input type="file" name="file"    {...register("photo", { required: true })} />
                     </div>
 
                     {/* Password Input */}

@@ -1,8 +1,15 @@
 import { Link, NavLink } from 'react-router-dom'
 import logo from '../assets/logo.svg'
 import PrimaryButton from './PrimaryButton'
+import useAuth from '../hooks/useAuth'
 export default function Navbar() {
-    const user = true
+    const { user, logOut } = useAuth()
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+                console.log("User logged out successfully")
+            })
+    }
     const navlinks = <>
         <li><NavLink to={'/'}>Home</NavLink></li>
         <li><NavLink to={'/apartment'}>Apartment</NavLink></li>
@@ -47,7 +54,8 @@ export default function Navbar() {
                                 <div className="w-10 rounded-full">
                                     <img
                                         alt="Tailwind CSS Navbar component"
-                                        src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                                        src={user?.
+                                            photoURL} />
                                 </div>
                             </div>
                             <ul
@@ -57,7 +65,7 @@ export default function Navbar() {
                                     <a href="" className='btn-disabled'> Darun Karas</a>
                                 </li>
                                 <li><a>Dashboard</a></li>
-                                <li><a>Logout</a></li>
+                                <li><a onClick={handleLogOut}>Logout</a></li>
                             </ul>
                         </div></> : <>
                         <PrimaryButton text={`Login`} />

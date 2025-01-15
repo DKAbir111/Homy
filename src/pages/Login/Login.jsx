@@ -1,12 +1,30 @@
 import { useState } from 'react'
 import { FcGoogle } from 'react-icons/fc'
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import Lottie from "lottie-react";
 import LoginLottie from '../../assets/lottie/login.json'
+import useAuth from '../../hooks/useAuth';
+import { toast } from 'react-toastify';
 export default function Login() {
     const [showPassword, setShowPassword] = useState(false)
-    const handleLogin = () => {
-
+    const { login } = useAuth()
+    const navigate = useNavigate()
+    const location = useLocation()
+    const handleLogin = (e) => {
+        e.preventDefault()
+        const email = e.target.email.value
+        const password = e.target.password.value
+        login(email, password)
+            .then(res => {
+                if (res?.user?.email) {
+                    toast.success('Successfully logged in')
+                    navigate(location.state || '/', { replace: true })
+                }
+            })
+            .catch(err => {
+                toast.error('Invalid email or password')
+                console.log(err)
+            })
     }
 
     const handleGoogleSignIn = () => {
