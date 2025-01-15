@@ -36,6 +36,7 @@ export default function Register() {
                         <input
                             type="text"
                             name="name"
+                            {...register("name", { required: true })}
                             placeholder="Enter your full name"
                             className="input input-bordered rounded-sm w-full py-3 px-4 border-[#fbddd1] focus:outline-none focus:border-[#]"
                             required
@@ -48,6 +49,7 @@ export default function Register() {
                         <input
                             type="email"
                             name="email"
+                            {...register("email", { required: true })}
                             placeholder="Enter your email"
                             className="input input-bordered rounded-sm w-full py-3 px-4 border-[#fbddd1] focus:outline-none focus:border-[#]"
                             required
@@ -60,9 +62,10 @@ export default function Register() {
                         <input
                             type="text"
                             name="photo"
+                            {...register("photo", { required: true })}
                             placeholder="Provide a profile picture URL"
                             className="input input-bordered rounded-sm w-full py-3 px-4 border-[#fbddd1] focus:outline-none focus:border-[#]"
-                            required
+                        // required
                         />
                         <input type="file" className="hidden" name="file" />
                         <span className="btn btn-sm absolute bg-white shadow-none border-none right-3 top-12">
@@ -73,14 +76,23 @@ export default function Register() {
                     {/* Password Input */}
                     <div className="form-control">
                         <label className="label text-sm font-semibold ">Password</label>
+                        {errors.password && <span className="tooltip tooltip-open tooltip-error" data-tip={errors.password.message}></span>}
                         <div className="relative">
                             <input
                                 type={showPassword ? "text" : "password"}
                                 name="password"
+                                {...register("password", {
+                                    required: "Password is required",
+                                    pattern: {
+                                        value: /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/,
+                                        message: "Password must contain at least one uppercase, one lowercase, one number, one special character, and be at least 6 characters long"
+                                    }
+                                })}
                                 placeholder="Create a password"
                                 className="input input-bordered rounded-sm w-full py-3 px-4 border-[#fbddd1] focus:outline-none focus:border-[#]"
                                 required
                             />
+
                             <button
                                 type="button"
                                 onClick={() => setShowPassword(!showPassword)}
@@ -89,6 +101,7 @@ export default function Register() {
                                 {showPassword ? "Hide" : "Show"}
                             </button>
                         </div>
+
                     </div>
 
                     {/* Register Button */}
