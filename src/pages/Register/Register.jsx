@@ -12,7 +12,7 @@ export default function Register() {
     const navigate = useNavigate()
     const [showPassword, setShowPassword] = useState(false);
     //authinfo
-    const { createUser } = useAuth()
+    const { createUser, googleSignIn } = useAuth()
     //hook-form
     const {
         register,
@@ -46,7 +46,13 @@ export default function Register() {
     }
 
     const handleGoogleSignIn = () => {
-        // Add your Google sign-in logic here
+        googleSignIn()
+            .then(res => {
+                if (res?.user?.email) {
+                    toast.success('Successfully logged in')
+                    navigate('/', { replace: true })
+                }
+            })
     };
 
     return (

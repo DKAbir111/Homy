@@ -7,7 +7,7 @@ import useAuth from '../../hooks/useAuth';
 import { toast } from 'react-toastify';
 export default function Login() {
     const [showPassword, setShowPassword] = useState(false)
-    const { login } = useAuth()
+    const { login, googleSignIn } = useAuth()
     const navigate = useNavigate()
     const location = useLocation()
     const handleLogin = (e) => {
@@ -28,7 +28,13 @@ export default function Login() {
     }
 
     const handleGoogleSignIn = () => {
-
+        googleSignIn()
+            .then(res => {
+                if (res?.user?.email) {
+                    toast.success('Successfully logged in')
+                    navigate(location.state || '/', { replace: true })
+                }
+            })
     }
 
     return (
