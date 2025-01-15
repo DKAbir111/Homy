@@ -33,8 +33,8 @@ export default function About() {
             </div>
 
             {/* Right Side */}
-            <div className="flex-1 bg-design-color p-10 rounded-xl">
-                <div className='bg-white w-full h-full rounded-xl p-10 space-y-6 shadow-md flex flex-col justify-center gap-5'>
+            <div className="flex-1 bg-design-color p-5 md:p-10 rounded-xl">
+                <div className='bg-white w-full h-full rounded-xl p-5 md:p-10 space-y-6 shadow-md flex flex-col justify-center gap-5'>
                     <h3 className='text-4xl font-semibold text-gray-800'>About Us</h3>
                     <p className='text-lg text-gray-600 leading-relaxed'>
                         We are committed to helping families secure their dream homes with ease. Our team
@@ -44,7 +44,7 @@ export default function About() {
                     </p>
 
                     {/* Stats Section */}
-                    <div className='flex justify-between border-y-2 border-gray-300 py-6 flex-col md:flex-row'>
+                    <div className='flex justify-between border-y-2 border-gray-300 py-6 flex-col md:flex-row gap-5 md:gap-0'>
                         <div className='text-center'>
                             <h2 className='font-semibold text-5xl text-primary-color'>500+</h2>
                             <p className='text-lg text-gray-500'>Happy Clients</p>
