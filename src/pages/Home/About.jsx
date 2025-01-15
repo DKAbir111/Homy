@@ -33,7 +33,7 @@ export default function About() {
 
             {/* Right Side */}
             <div className="flex-1 bg-design-color p-10 rounded-xl">
-                <div className='bg-white w-full h-full rounded-xl p-10 space-y-6 shadow-md flex flex-col item-'>
+                <div className='bg-white w-full h-full rounded-xl p-10 space-y-6 shadow-md flex flex-col justify-center gap-5'>
                     <h3 className='text-4xl font-semibold text-gray-800'>About Us</h3>
                     <p className='text-xl text-gray-600 leading-relaxed'>
                         We are committed to helping families secure their dream homes with ease. Our team
