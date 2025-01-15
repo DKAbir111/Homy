@@ -2,14 +2,21 @@ import { useState } from 'react';
 import { MdFileUpload } from 'react-icons/md';
 import { FcGoogle } from 'react-icons/fc';
 import { Link } from 'react-router-dom';
-
+import useAuth from '../../hooks/useAuth';
+import { useForm } from 'react-hook-form';
 export default function Register() {
     const [showPassword, setShowPassword] = useState(false);
+    //hook-form
+    const {
+        register,
+        handleSubmit,
+        watch,
+        formState: { errors },
+    } = useForm()
 
-    const handleRegister = (e) => {
-        e.preventDefault();
-        // Add your registration logic here
-    };
+    //submit form
+    const onSubmit = (data) => console.log(data)
+
 
     const handleGoogleSignIn = () => {
         // Add your Google sign-in logic here
@@ -22,7 +29,7 @@ export default function Register() {
                     Register
                 </h2>
 
-                <form className="space-y-6" onSubmit={handleRegister}>
+                <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
                     {/* Name Input */}
                     <div className="form-control">
                         <label className="label text-sm font-semibold ">Full Name</label>
