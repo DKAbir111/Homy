@@ -1,24 +1,22 @@
-import { useEffect, useState } from "react"
 import useAxiosSecure from "../../../hooks/useAxiosSecure"
 import { MdRemoveModerator } from "react-icons/md";
-import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import { useQuery } from "@tanstack/react-query";
+import useAuth from "../../../hooks/useAuth";
 
 
 export default function ManageMember() {
     const axiosSecure = useAxiosSecure()
+    const { user } = useAuth()
     // const [users, setUsers] = useState([])
 
     const { data: users = [], refetch } = useQuery({
-        queryKey: ['users'],
+        queryKey: ['users', user?.email],
         queryFn: async () => {
             const res = await axiosSecure.get('/user')
             return res.data
         }
     })
-
-
 
 
     const handleRole = (id) => {
@@ -41,6 +39,7 @@ export default function ManageMember() {
                                 text: "The user has been successfully demoted.",
                                 icon: "success",
                             });
+                            refetch()
                         }
                     })
             }
