@@ -1,0 +1,68 @@
+[
+    {
+        "_id": 1,
+        "image": "https://media.istockphoto.com/id/1398814566/photo/interior-of-small-apartment-living-room-for-home-office.jpg?s=612x612&w=0&k=20&c=8clwg8hTpvoEwL7253aKdYAUuAp1-usFOacNR5qX-Rg=",
+        "floorNo": 1,
+        "blockName": "A",
+        "apartmentNo": "101",
+        "rent": 500,
+        "description": "A cozy 2-bedroom apartment located on the first floor of Block A.",
+        "bed": 2,
+        "bath": 1
+    },
+    {
+        "_id": 2,
+        "image": "https://media.istockphoto.com/id/1398814566/photo/interior-of-small-apartment-living-room-for-home-office.jpg?s=612x612&w=0&k=20&c=8clwg8hTpvoEwL7253aKdYAUuAp1-usFOacNR5qX-Rg=",
+        "floorNo": 1,
+        "blockName": "A",
+        "apartmentNo": "102",
+        "rent": 550,
+        "description": "Spacious 3-bedroom apartment with excellent lighting in Block A.",
+        "bed": 3,
+        "bath": 2
+    },
+    {
+        "_id": 3,
+        "image": "https://media.istockphoto.com/id/1398814566/photo/interior-of-small-apartment-living-room-for-home-office.jpg?s=612x612&w=0&k=20&c=8clwg8hTpvoEwL7253aKdYAUuAp1-usFOacNR5qX-Rg=",
+        "floorNo": 2,
+        "blockName": "B",
+        "apartmentNo": "201",
+        "rent": 600,
+        "description": "Modern 2-bedroom apartment with a balcony on the second floor of Block B.",
+        "bed": 2,
+        "bath": 2
+    },
+    {
+        "_id": 4,
+        "image": "https://media.istockphoto.com/id/1398814566/photo/interior-of-small-apartment-living-room-for-home-office.jpg?s=612x612&w=0&k=20&c=8clwg8hTpvoEwL7253aKdYAUuAp1-usFOacNR5qX-Rg=",
+        "floorNo": 2,
+        "blockName": "B",
+        "apartmentNo": "202",
+        "rent": 650,
+        "description": "Well-furnished 3-bedroom apartment in the quiet surroundings of Block B.",
+        "bed": 3,
+        "bath": 2
+    },
+    {
+        "_id": 5,
+        "image": "https://media.istockphoto.com/id/1398814566/photo/interior-of-small-apartment-living-room-for-home-office.jpg?s=612x612&w=0&k=20&c=8clwg8hTpvoEwL7253aKdYAUuAp1-usFOacNR5qX-Rg=",
+        "floorNo": 3,
+        "blockName": "C",
+        "apartmentNo": "301",
+        "rent": 700,
+        "description": "Luxury 3-bedroom apartment with an amazing city view in Block C.",
+        "bed": 3,
+        "bath": 3
+    },
+    {
+        "_id": 6,
+        "image": "https://media.istockphoto.com/id/1398814566/photo/interior-of-small-apartment-living-room-for-home-office.jpg?s=612x612&w=0&k=20&c=8clwg8hTpvoEwL7253aKdYAUuAp1-usFOacNR5qX-Rg=",
+        "floorNo": 3,
+        "blockName": "C",
+        "apartmentNo": "302",
+        "rent": 750,
+        "description": "Spacious 4-bedroom apartment, perfect for families in Block C.",
+        "bed": 4,
+        "bath": 3
+    }
+]
