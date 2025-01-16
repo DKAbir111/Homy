@@ -4,7 +4,7 @@ import useAuth from "../hooks/useAuth"
 export default function PrivateRoute({ children }) {
     const { user, loading } = useAuth()
     const location = useLocation()
-    console.log(location)
+    // console.log(location)
     if (loading) {
         return <div>Loading...</div>
     }

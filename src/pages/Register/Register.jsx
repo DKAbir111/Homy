@@ -35,7 +35,7 @@ export default function Register() {
                     updateProfile(auth.currentUser, {
                         displayName: name, photoURL: imageUrl
                     })
-                    storeUser(name, email)
+                    storeUser(name, email, imageUrl)
                     toast.success("User created successfully!")
                     navigate('/')
                 }
@@ -50,6 +50,7 @@ export default function Register() {
         googleSignIn()
             .then(res => {
                 if (res?.user?.email) {
+                    storeUser(res.user.displayName, res.user.email, res.user.photoURL)
                     toast.success('Successfully logged in')
                     navigate('/', { replace: true })
                 }

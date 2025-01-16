@@ -36,7 +36,7 @@ export default function AuthProvider({ children }) {
         })
 
         return () => unsubscribe()
-    }, [])
+    }, [axiosPublic])
 
     //create user
     const createUser = (email, password) => {
@@ -64,13 +64,15 @@ export default function AuthProvider({ children }) {
     }
 
     //store user to database
-    const storeUser = (name, email) => {
+    const storeUser = (name, email, photo) => {
         const userInfo = {
             email: email,
             name: name,
+            photo: photo,
             role: 'user'
         }
-        axiosPublic('/user', userInfo)
+
+        axiosPublic.post('/user', userInfo)
             .then(res => {
                 if (res.data.insertedId) {
                     console.log(res.data.insertedId, "store in database")
