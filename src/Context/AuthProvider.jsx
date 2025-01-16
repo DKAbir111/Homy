@@ -3,13 +3,14 @@ import AuthContext from "./AuthContext";
 import auth from "../Firebase/firebase.init";
 import { useEffect, useState } from "react";
 import { GoogleAuthProvider } from "firebase/auth";
-import axios from "axios";
+import useAxiosPublic from "../hooks/useAxiosPublic";
+
 
 export default function AuthProvider({ children }) {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
     const provider = new GoogleAuthProvider();
-
+    const axiosPublic = useAxiosPublic()
     //Attach the observer
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
@@ -21,13 +22,19 @@ export default function AuthProvider({ children }) {
                     email: currentUser.email,
                     name: currentUser.displayName,
                 }
-                axios.post('http://localhost:5001/api/jwt', user)
+                axiosPublic.post('/jwt', user)
                     .then(res => {
                         localStorage.setItem('access-token', res.data.token)
+                        setLoading(false)
                     })
+
+            }
+            else {
+                localStorage.removeItem('access-token')
                 setLoading(false)
             }
         })
+
         return () => unsubscribe()
     }, [])
 
@@ -55,13 +62,31 @@ export default function AuthProvider({ children }) {
     const logOut = () => {
         return signOut(auth)
     }
+
+    //store user to database
+    const storeUser = (name, email) => {
+        const userInfo = {
+            email: email,
+            name: name,
+            role: 'user'
+        }
+        axiosPublic('/user', userInfo)
+            .then(res => {
+                if (res.data.insertedId) {
+                    console.log(res.data.insertedId, "store in database")
+                }
+            })
+            .catch(err => console.log(err))
+    }
+
     const authInfo = {
         login,
         createUser,
         user,
         loading,
         googleSignIn,
-        logOut
+        logOut,
+        storeUser
 
     };
     return (

@@ -7,7 +7,7 @@ import useAuth from '../../hooks/useAuth';
 import { toast } from 'react-toastify';
 export default function Login() {
     const [showPassword, setShowPassword] = useState(false)
-    const { login, googleSignIn } = useAuth()
+    const { login, googleSignIn, storeUser } = useAuth()
     const navigate = useNavigate()
     const location = useLocation()
     const handleLogin = (e) => {
@@ -31,12 +31,14 @@ export default function Login() {
         googleSignIn()
             .then(res => {
                 if (res?.user?.email) {
+                    storeUser(res.user.email, res.user.displayName)
                     toast.success('Successfully logged in')
                     navigate(location.state || '/', { replace: true })
                 }
             })
     }
 
+    console.log(location)
     return (
         <div className="bg-base-100 min-h-screen flex justify-between items-center font-lato container mx-auto relative flex-col lg:flex-row">
             <div className='w-1/2 lg:absolute -top-64 right-0'>

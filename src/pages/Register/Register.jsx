@@ -12,7 +12,7 @@ export default function Register() {
     const navigate = useNavigate()
     const [showPassword, setShowPassword] = useState(false);
     //authinfo
-    const { createUser, googleSignIn } = useAuth()
+    const { createUser, googleSignIn, storeUser } = useAuth()
     //hook-form
     const {
         register,
@@ -35,6 +35,7 @@ export default function Register() {
                     updateProfile(auth.currentUser, {
                         displayName: name, photoURL: imageUrl
                     })
+                    storeUser(name, email)
                     toast.success("User created successfully!")
                     navigate('/')
                 }
