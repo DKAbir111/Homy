@@ -59,7 +59,9 @@ const ApartmentCard = ({ apartment }) => {
                     </button>
                 </div>
             </div>
+            {/* TODO: Apply pagination here */}
         </div>
+
     );
 };
 

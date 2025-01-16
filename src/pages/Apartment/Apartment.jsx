@@ -5,7 +5,7 @@ import axios from "axios";
 export default function Apartment() {
     const [apartments, setApartments] = useState([])
     useEffect(() => {
-        axios.get('/Apartment.json')
+        axios.get('http://localhost:5001/api/apartment')
             .then(res => setApartments(res.data))
     }, [])
     return (

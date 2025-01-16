@@ -1,7 +1,6 @@
 [
     {
-        "_id": 1,
-        "image": "https://media.istockphoto.com/id/1398814566/photo/interior-of-small-apartment-living-room-for-home-office.jpg?s=612x612&w=0&k=20&c=8clwg8hTpvoEwL7253aKdYAUuAp1-usFOacNR5qX-Rg=",
+        "image": "https://i.ibb.co.com/QmCbjWL/1.jpg",
         "floorNo": 1,
         "blockName": "A",
         "apartmentNo": "101",
@@ -11,8 +10,7 @@
         "bath": 1
     },
     {
-        "_id": 2,
-        "image": "https://media.istockphoto.com/id/1398814566/photo/interior-of-small-apartment-living-room-for-home-office.jpg?s=612x612&w=0&k=20&c=8clwg8hTpvoEwL7253aKdYAUuAp1-usFOacNR5qX-Rg=",
+        "image": "https://i.ibb.co.com/c1c1HwP/2.jpg",
         "floorNo": 1,
         "blockName": "A",
         "apartmentNo": "102",
@@ -22,8 +20,7 @@
         "bath": 2
     },
     {
-        "_id": 3,
-        "image": "https://media.istockphoto.com/id/1398814566/photo/interior-of-small-apartment-living-room-for-home-office.jpg?s=612x612&w=0&k=20&c=8clwg8hTpvoEwL7253aKdYAUuAp1-usFOacNR5qX-Rg=",
+        "image": "https://i.ibb.co.com/0G4GXQV/3.jpg",
         "floorNo": 2,
         "blockName": "B",
         "apartmentNo": "201",
@@ -33,8 +30,7 @@
         "bath": 2
     },
     {
-        "_id": 4,
-        "image": "https://media.istockphoto.com/id/1398814566/photo/interior-of-small-apartment-living-room-for-home-office.jpg?s=612x612&w=0&k=20&c=8clwg8hTpvoEwL7253aKdYAUuAp1-usFOacNR5qX-Rg=",
+        "image": "https://i.ibb.co.com/h9jDSs9/4.jpg",
         "floorNo": 2,
         "blockName": "B",
         "apartmentNo": "202",
@@ -44,8 +40,7 @@
         "bath": 2
     },
     {
-        "_id": 5,
-        "image": "https://media.istockphoto.com/id/1398814566/photo/interior-of-small-apartment-living-room-for-home-office.jpg?s=612x612&w=0&k=20&c=8clwg8hTpvoEwL7253aKdYAUuAp1-usFOacNR5qX-Rg=",
+        "image": "https://i.ibb.co.com/qJpPQD2/5.jpg",
         "floorNo": 3,
         "blockName": "C",
         "apartmentNo": "301",
@@ -55,8 +50,7 @@
         "bath": 3
     },
     {
-        "_id": 6,
-        "image": "https://media.istockphoto.com/id/1398814566/photo/interior-of-small-apartment-living-room-for-home-office.jpg?s=612x612&w=0&k=20&c=8clwg8hTpvoEwL7253aKdYAUuAp1-usFOacNR5qX-Rg=",
+        "image": "https://i.ibb.co.com/GWPHYw5/6.png",
         "floorNo": 3,
         "blockName": "C",
         "apartmentNo": "302",
