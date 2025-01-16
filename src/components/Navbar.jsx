@@ -64,7 +64,7 @@ export default function Navbar() {
                                 <li>
                                     <a href="" className='btn-disabled'> Darun Karas</a>
                                 </li>
-                                <li><a>Dashboard</a></li>
+                                <li><Link to={'/dashboard/user'}>Dashboard</Link></li>
                                 <li><a onClick={handleLogOut}>Logout</a></li>
                             </ul>
                         </div></> : <>

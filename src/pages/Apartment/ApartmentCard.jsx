@@ -66,10 +66,9 @@ const ApartmentCard = ({ apartment }) => {
                             }
                         })
                         .catch((error) => {
-                            console.log(error)
                             Swal.fire({
                                 title: "Error",
-                                text: "An error occurred while submitting the agreement.",
+                                text: `${error.response.data.message}`,
                                 icon: "error"
                             });
                         })
