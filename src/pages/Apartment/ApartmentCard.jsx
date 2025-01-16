@@ -3,7 +3,82 @@ import { CiLineHeight } from "react-icons/ci";
 import { IoBedOutline } from "react-icons/io5";
 import { GiBathtub } from "react-icons/gi";
 import { GoArrowUpRight } from "react-icons/go";
+import Swal from "sweetalert2";
+import useAuth from '../../hooks/useAuth'
+import { useNavigate } from "react-router-dom";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 const ApartmentCard = ({ apartment }) => {
+    const { user } = useAuth()
+    const navigate = useNavigate()
+    const axiosSecure = useAxiosSecure()
+    //handle agreement function
+    const handleAgreement = (apartment) => {
+        if (!user?.email) {
+            Swal.fire({
+                title: "Login Required",
+                text: "Would you like to log in now?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, Log in",
+                cancelButtonText: "Cancel"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    navigate('/auth/login');
+
+                }
+            });
+        }
+
+
+        const agreementInfo = {
+            name: user?.name,
+            email: user?.email,
+            apartmentNo: apartment.apartmentNo,
+            rent: apartment.rent,
+            blockName: apartment.blockName,
+            floorNo: apartment.floorNo,
+            apartmentId: apartment._id,
+            status: "pending"
+        }
+        //confirm agreement
+        if (user?.email) {
+            Swal.fire({
+                title: "Confirm Agreement",
+                text: "Are you sure you want to proceed with the agreement?",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, Proceed Agreement",
+                cancelButtonText: "Cancel"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    axiosSecure.post('/agreement', agreementInfo)
+                        .then(res => {
+                            if (res.data.insertedId) {
+                                Swal.fire({
+                                    title: "Agreement Submitted",
+                                    text: "Your request for the rental agreement has been successfully submitted.",
+                                    icon: "success"
+                                });
+                            }
+                        })
+                        .catch((error) => {
+                            console.log(error)
+                            Swal.fire({
+                                title: "Error",
+                                text: "An error occurred while submitting the agreement.",
+                                icon: "error"
+                            });
+                        })
+                }
+            });
+
+        }
+
+    }
     return (
         <div className="max-w-md border rounded-2xl shadow-lg overflow-hidden bg-white ">
             {/* Image Section */}
@@ -53,6 +128,7 @@ const ApartmentCard = ({ apartment }) => {
                         ${apartment.rent}
                     </div>
                     <button
+                        onClick={() => handleAgreement(apartment)}
                         className="btn  rounded-full flex items-center bg-primary-color text-white hover:bg-black duration-300"
                     >
                         Agreement<GoArrowUpRight />
