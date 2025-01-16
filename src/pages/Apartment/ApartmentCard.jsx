@@ -33,13 +33,14 @@ const ApartmentCard = ({ apartment }) => {
 
 
         const agreementInfo = {
-            name: user?.name,
+            name: user?.displayName,
             email: user?.email,
             apartmentNo: apartment.apartmentNo,
             rent: apartment.rent,
             blockName: apartment.blockName,
             floorNo: apartment.floorNo,
             apartmentId: apartment._id,
+            date: new Date(),
             status: "pending"
         }
         //confirm agreement
