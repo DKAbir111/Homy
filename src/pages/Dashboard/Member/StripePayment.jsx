@@ -1,14 +1,11 @@
-import { useLocation } from "react-router-dom";
 import CheckoutForm from "./CheckoutForm";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 
-const stripePromise = loadStripe('pk_test_6pRNASCoBOKtIshFeQd4XMUh');
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
 export default function StripePayment() {
-    let { state } = useLocation();
-    console.log(state)
     return (
-        <Elements stripe={stripePromise}>
+        <Elements stripe={stripePromise} >
             <CheckoutForm />
         </Elements>
     )
