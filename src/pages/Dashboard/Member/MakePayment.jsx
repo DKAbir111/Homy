@@ -17,7 +17,8 @@ export default function MakePayment() {
             .get(`/agreement/${user?.email}`)
             .then((res) => {
                 setInfo(res.data);
-                setFinalRent(res.data?.rent || 0); // Initialize finalRent with default rent
+                setFinalRent(res.data?.rent || 0);
+                setDiscount(0)
             });
     }, [axiosSecure, user?.email]);
 
@@ -26,8 +27,8 @@ export default function MakePayment() {
             .post("/validate-coupon", { couponCode: coupon })
             .then((res) => {
                 if (res.data.isValid) {
-                    const discountPercentage = res.data.discountPercentage;
-                    const discountedRent = info.rent - (info.rent * discountPercentage) / 100;
+                    const discountPercentage = parseInt(res.data.discountPercentage);
+                    const discountedRent = parseInt(info.rent) - parseInt(info.rent * discountPercentage) / 100;
                     setDiscount(discountPercentage);
                     setFinalRent(discountedRent.toFixed(2));
                     Swal.fire("Success!", `Coupon applied! ${discountPercentage}% off.`, "success");
@@ -53,7 +54,6 @@ export default function MakePayment() {
     //         }
     //     });
     // };
-
     return (
         <div className="p-6  min-h-screen">
             <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-lg p-8">
@@ -113,7 +113,7 @@ export default function MakePayment() {
                                 <button
                                     type="button"
                                     onClick={applyCoupon}
-                                    className="px-4 py-2 bg-primary-color text-white rounded hover:bg-orange-600"
+                                    className={`px-4 btn bg-primary-color text-white rounded hover:bg-orange-600 ${discount && "btn-disabled"}`}
                                 >
                                     Apply
                                 </button>
@@ -129,7 +129,7 @@ export default function MakePayment() {
                             </h4>
                         </div>
 
-                        <Link to={'/dashboard/stripe-pay'}>
+                        <Link to={'/dashboard/stripe-pay'} state={{ finalRent: finalRent }}>
                             <button
                                 className="w-full py-3 bg-primary-color text-white"
                             >
