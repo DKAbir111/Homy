@@ -7,6 +7,7 @@ const MyProfile = () => {
     return (
         <div className="min-h-screen flex flex-col items-center py-10">
             <div className="bg-white shadow-lg rounded-lg w-full max-w-2xl p-6">
+
                 {/* Profile Header */}
                 <div className="flex flex-col items-center mb-8">
                     <img

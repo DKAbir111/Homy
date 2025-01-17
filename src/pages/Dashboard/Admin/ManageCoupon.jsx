@@ -86,7 +86,7 @@ const ManageCoupon = () => {
                     Add Coupon
                 </button>
             </div>
-            <table className="w-full border border-gray-300 shadow-sm">
+            <table className="w-full border border-gray-300 shadow-sm bg-base-100">
                 <thead className="bg-gray-100">
                     <tr>
                         <th className="py-3 px-4 border-b text-left">Code</th>

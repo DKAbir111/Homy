@@ -9,7 +9,7 @@ import { GrAnnounce } from "react-icons/gr";
 import { IoMdPaper } from "react-icons/io";
 import { RiCoupon3Fill } from "react-icons/ri";
 export default function SideBar() {
-    const role = 'admin'
+    const role = 'member'
     return (
         <div className="drawer lg:drawer-open">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
