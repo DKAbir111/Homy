@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 export default function MakePayment() {
     const { user } = useAuth();
@@ -37,21 +38,21 @@ export default function MakePayment() {
             .catch(() => Swal.fire("Error", "Failed to apply coupon.", "error"));
     };
 
-    const handlePayment = () => {
-        Swal.fire({
-            title: "Confirm Payment",
-            text: `Pay $${finalRent} for apartment ${info?.apartmentNo}?`,
-            icon: "question",
-            showCancelButton: true,
-            confirmButtonText: "Pay Now",
-        }).then((result) => {
-            if (result.isConfirmed) {
-                axiosSecure.post("/make-payment", { email: user.email, amount: finalRent })
-                    .then(() => Swal.fire("Success!", "Payment completed.", "success"))
-                    .catch(() => Swal.fire("Error!", "Payment failed.", "error"));
-            }
-        });
-    };
+    // const handlePayment = () => {
+    //     Swal.fire({
+    //         title: "Confirm Payment",
+    //         text: `Pay $${finalRent} for apartment ${info?.apartmentNo}?`,
+    //         icon: "question",
+    //         showCancelButton: true,
+    //         confirmButtonText: "Pay Now",
+    //     }).then((result) => {
+    //         if (result.isConfirmed) {
+    //             axiosSecure.post("/make-payment", { email: user.email, amount: finalRent })
+    //                 .then(() => Swal.fire("Success!", "Payment completed.", "success"))
+    //                 .catch(() => Swal.fire("Error!", "Payment failed.", "error"));
+    //         }
+    //     });
+    // };
 
     return (
         <div className="p-6  min-h-screen">
@@ -128,13 +129,13 @@ export default function MakePayment() {
                             </h4>
                         </div>
 
-                        <button
-                            type="button"
-                            onClick={handlePayment}
-                            className="w-full py-3 bg-[#fbddd1] rounded hover:bg-[#f4c9b8]"
-                        >
-                            Pay ${finalRent}
-                        </button>
+                        <Link to={'/dashboard/stripe-pay'}>
+                            <button
+                                className="w-full py-3 bg-primary-color text-white"
+                            >
+                                Pay ${finalRent}
+                            </button>
+                        </Link>
                     </form>
                 )}
             </div>

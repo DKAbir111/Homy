@@ -16,6 +16,7 @@ import ManageCoupon from "../pages/Dashboard/Admin/ManageCoupon";
 import AgreementRequest from "../pages/Dashboard/Admin/AgreementRequest";
 import MakePayment from "../pages/Dashboard/Member/MakePayment";
 import PaymentHistory from "../pages/Dashboard/Member/PaymentHistory";
+import StripePayment from "../pages/Dashboard/Member/StripePayment";
 
 const router = createBrowserRouter([
     {
@@ -82,6 +83,10 @@ const router = createBrowserRouter([
             {
                 path: 'payment-history',
                 element: <PrivateRoute> <PaymentHistory /> </PrivateRoute>
+            },
+            {
+                path: 'stripe-pay',
+                element: <PrivateRoute> <StripePayment /> </PrivateRoute>
             }
 
 
