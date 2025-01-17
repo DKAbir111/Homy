@@ -13,7 +13,6 @@ const AgreementRequest = () => {
             return res.data
         }
     })
-
     const handleAccept = (id, email) => {
         axiosSecure
             .patch(`/agreement?email=${email}&id=${id}`)
@@ -29,11 +28,13 @@ const AgreementRequest = () => {
             });
     };
 
-    const handleReject = (request) => {
+    const handleReject = (id) => {
         axiosSecure
-            .post(`/agreement/reject/${request.id}`)
+            .patch(`/agreement?id=${id}`)
             .then((res) => {
-                Swal.fire("Rejected!", "The agreement has been rejected.", "warning");
+                if (res.data.result.modifiedCount > 0) {
+                    Swal.fire("Rejected!", "The agreement has been rejected.", "warning");
+                }
             })
             .catch((err) => {
                 console.error(err);
@@ -77,7 +78,7 @@ const AgreementRequest = () => {
                                             Accept
                                         </button>
                                         <button
-                                            onClick={() => handleReject(request)}
+                                            onClick={() => handleReject(request._id)}
                                             className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600"
                                         >
                                             Reject
