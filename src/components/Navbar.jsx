@@ -2,6 +2,7 @@ import { Link, NavLink } from 'react-router-dom'
 import logo from '../assets/logo.svg'
 import PrimaryButton from './PrimaryButton'
 import useAuth from '../hooks/useAuth'
+import useRole from '../hooks/useRole'
 export default function Navbar() {
     const { user, logOut } = useAuth()
     const handleLogOut = () => {
@@ -10,6 +11,8 @@ export default function Navbar() {
                 console.log("User logged out successfully")
             })
     }
+
+    const [role] = useRole()
     const navlinks = <>
         <li><NavLink to={'/'}>Home</NavLink></li>
         <li><NavLink to={'/apartment'}>Apartment</NavLink></li>
@@ -62,9 +65,9 @@ export default function Navbar() {
                                 tabIndex={0}
                                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
                                 <li>
-                                    <a href="" className='btn-disabled'> Darun Karas</a>
+                                    <a href="" className='btn-disabled'>{user?.displayName}</a>
                                 </li>
-                                <li><Link to={'/dashboard/user'}>Dashboard</Link></li>
+                                <li><Link to={role === "admin" ? '/dashboard/admin' : '/dashboard/user'}>Dashboard</Link></li>
                                 <li><a onClick={handleLogOut}>Logout</a></li>
                             </ul>
                         </div></> : <>

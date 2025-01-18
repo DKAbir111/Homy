@@ -17,6 +17,7 @@ import AgreementRequest from "../pages/Dashboard/Admin/AgreementRequest";
 import MakePayment from "../pages/Dashboard/Member/MakePayment";
 import PaymentHistory from "../pages/Dashboard/Member/PaymentHistory";
 import StripePayment from "../pages/Dashboard/Member/StripePayment";
+import AdminHome from "../pages/Dashboard/Admin/AdminHome";
 
 const router = createBrowserRouter([
     {
@@ -58,6 +59,11 @@ const router = createBrowserRouter([
             },
 
             // admin dashboard
+            {
+                path: 'admin',
+                element: <PrivateRoute><AdminHome /> </PrivateRoute>
+
+            },
             {
                 path: 'manage-member',
                 element: <PrivateRoute><ManageMember /> </PrivateRoute>

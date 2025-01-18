@@ -1,15 +1,16 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from '../../assets/logo.svg'
 import { CgProfile } from "react-icons/cg";
-import { MdOutlineAnnouncement } from "react-icons/md";
+import { MdOutlineAnnouncement, MdOutlineApartment } from "react-icons/md";
 import { MdOutlinePayments } from "react-icons/md";
 import { FaHistory } from "react-icons/fa";
 import { FaUserCog } from "react-icons/fa";
 import { GrAnnounce } from "react-icons/gr";
-import { IoMdPaper } from "react-icons/io";
+import { IoMdHome, IoMdPaper } from "react-icons/io";
 import { RiCoupon3Fill } from "react-icons/ri";
+import useRole from "../../hooks/useRole";
 export default function SideBar() {
-    const role = 'member'
+    const [role] = useRole()
     return (
         <div className="drawer lg:drawer-open">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -23,8 +24,12 @@ export default function SideBar() {
                 <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>
                 <ul className="menu bg-base-100 text-base-content min-h-full w-80 p-4 space-y-2">
                     {/* Sidebar content here */}
-                    <Link className="pt-3 pb-5 border-b mb-5"> <img src={logo} alt="" /></Link>
-                    <li><NavLink to={'/dashboard/user'} className='py-4 font-bold'><CgProfile className="text-2xl" /> My Profile</NavLink></li>
+                    <Link to={role === "admin" ? '/dashboard/admin' : '/dashboard/user'} className="pt-3 pb-5 border-b mb-5"> <img src={logo} alt="" /></Link>
+                    {
+                        role !== "admin" && <>
+                            <li><NavLink to={'/dashboard/user'} className='py-4 font-bold'><CgProfile className="text-2xl" /> My Profile</NavLink></li>
+                        </>
+                    }
 
                     {/* member */}
                     {
@@ -37,6 +42,7 @@ export default function SideBar() {
                     {/* admin */}
                     {
                         role === "admin" && <>
+                            <li><NavLink to={'/dashboard/admin'} className='py-4 font-bold'><CgProfile className="text-2xl" />Admin Profile</NavLink></li>
                             <li><NavLink to={'/dashboard/manage-member'} className='py-4 font-bold'><FaUserCog className="text-2xl" /> Manage Members</NavLink></li>
                             <li><NavLink to={'/dashboard/make-announcement'} className='py-4 font-bold'><GrAnnounce className="text-2xl" /> Make Announcement</NavLink></li>
                             <li><NavLink to={'/dashboard/agreement-request'} className='py-4 font-bold'><IoMdPaper className="text-2xl" />Agreement Requests</NavLink></li>
@@ -44,6 +50,10 @@ export default function SideBar() {
                         </>
                     }
                     <li ><NavLink to={'/dashboard/announcement'} className='py-4 font-bold'><MdOutlineAnnouncement className="text-2xl" /> Announcement</NavLink></li>
+
+                    <div className="divider"></div>
+                    <li ><NavLink to={'/'} className='py-4 font-bold'><IoMdHome className="text-2xl" /> Home</NavLink></li>
+                    <li ><NavLink to={'/apartment'} className='py-4 font-bold'><MdOutlineApartment className="text-2xl" /> Apartment</NavLink></li>
                 </ul>
             </div>
         </div>
