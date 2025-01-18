@@ -14,8 +14,8 @@ export default function AdminHome() {
             .then(res => setStats(res.data));
     }, [axiosSecure]);
 
-    const availablePercentage = ((stats.availableApartment / stats.totalApartment) * 100).toFixed(1);
-    const unavailablePercentage = ((stats.totalrentedApartment / stats.totalApartment) * 100).toFixed(1);
+    const availablePercentage = parseFloat((stats.availableApartment / stats.totalApartment) * 100).toFixed(1);
+    const unavailablePercentage = parseFloat((stats.totalrentedApartment / stats.totalApartment) * 100).toFixed(1);
 
     // Data for PieChart
     const pieChartData = [
