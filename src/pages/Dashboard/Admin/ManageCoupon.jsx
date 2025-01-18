@@ -5,27 +5,21 @@ import { toast } from "react-toastify";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 
-
 const ManageCoupon = () => {
-    const axiosPublic = useAxiosPublic()
-    const axiosSecure = useAxiosSecure()
-
-
+    const axiosPublic = useAxiosPublic();
+    const axiosSecure = useAxiosSecure();
 
     const { data: coupons = [], refetch } = useQuery({
-        queryKey: ['couppons'],
+        queryKey: ['coupons'],
         queryFn: async () => {
-            const res = await axiosPublic.get('/coupon')
-            return res.data
+            const res = await axiosPublic.get('/coupon');
+            return res.data;
         }
-    })
-
+    });
 
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleDeleteCoupon = (id) => {
-
-
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -38,22 +32,18 @@ const ManageCoupon = () => {
             if (result.isConfirmed) {
                 axiosSecure.delete(`/coupon/${id}`)
                     .then(res => {
-                        console.log(res.data)
                         if (res.data.deletedCount > 0) {
                             Swal.fire({
                                 title: "Deleted!",
-                                text: "Your file has been deleted.",
+                                text: "Your coupon has been deleted.",
                                 icon: "success"
                             });
-                            refetch()
+                            refetch();
                         }
-                    })
+                    });
             }
         });
-
-
     };
-
 
     const handleAddCoupon = (e) => {
         e.preventDefault();
@@ -64,55 +54,72 @@ const ManageCoupon = () => {
             code,
             discount,
             description
-        }
+        };
         axiosSecure.post('/coupon', newCoupon)
             .then(res => {
                 if (res.data.insertedId) {
-                    toast.success('Coupon added successfully')
-                    e.target.reset()
-                    refetch()
+                    toast.success('Coupon added successfully');
+                    e.target.reset();
+                    refetch();
                 }
-            })
-
-    }
+            });
+    };
 
     return (
-        <div className="p-6">
-            <div className="flex justify-between items-center mb-4">
-                <h2 className="text-2xl font-bold">Manage Coupons</h2>
+        <div className="min-h-screen pt-5">
+            {/* Header Section */}
+            <div className="bg-white rounded-lg shadow-lg p-6 flex items-center justify-between">
+                <div className="text-center">
+                    <h1 className="text-2xl font-semibold text-gray-800">Manage Coupons</h1>
+                    <p className="text-gray-500 text-left">Coupons Available: {coupons.length || 0}</p>
+                </div>
                 <button
                     onClick={() => setIsModalOpen(true)}
-                    className="px-4 py-2 bg-primary-color text-white font-medium rounded shadow hover:bg-orange-600">
+                    className="px-4 py-2 bg-primary-color text-white font-medium rounded shadow hover:bg-orange-600"
+                >
                     Add Coupon
                 </button>
             </div>
-            <table className="w-full border border-gray-300 shadow-sm bg-base-100">
-                <thead className="bg-gray-100">
-                    <tr>
-                        <th className="py-3 px-4 border-b text-left">Code</th>
-                        <th className="py-3 px-4 border-b text-left">Discount</th>
-                        <th className="py-3 px-4 border-b text-left">Description</th>
-                        <th className="py-3 px-4 border-b text-left">Actions</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {coupons.map((coupon) => (
-                        <tr key={coupon._id} className="hover:bg-gray-50">
-                            <td className="py-3 px-4 border-b">{coupon.code}</td>
-                            <td className="py-3 px-4 border-b">{coupon.discount}</td>
-                            <td className="py-3 px-4 border-b">{coupon.description}</td>
-                            <td className="py-3 px-4 border-b">
-                                <button
-                                    onClick={() => handleDeleteCoupon(coupon._id)}
-                                    className="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600"
-                                >
-                                    Delete
-                                </button>
-                            </td>
+            <div className="overflow-x-auto p-5 shadow-xl bg-white mt-8">
+                <div className="text-lg font-semibold text-center mb-6">
+                    <p>Available Coupons</p>
+                </div>
+                <table className="min-w-full table-auto">
+                    <thead className="bg-primary-color text-white text-sm">
+                        <tr>
+                            <th className="py-2">Code</th>
+                            <th className="py-2">Discount</th>
+                            <th className="py-2">Description</th>
+                            <th className="py-2">Actions</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {coupons.length > 0 ? (
+                            coupons.map((coupon) => (
+                                <tr key={coupon._id} className="hover:bg-gray-50 border-b">
+                                    <td className="px-6 py-4">{coupon.code}</td>
+                                    <td className="px-6 py-4 text-center">{coupon.discount}%</td>
+                                    <td className="px-6 py-4">{coupon.description}</td>
+                                    <td className="px-6 py-4 text-center flex justify-center gap-4">
+                                        <button
+                                            onClick={() => handleDeleteCoupon(coupon._id)}
+                                            className="btn btn-sm rounded-sm btn-error text-white"
+                                        >
+                                            Delete
+                                        </button>
+                                    </td>
+                                </tr>
+                            ))
+                        ) : (
+                            <tr>
+                                <td colSpan="4" className="text-center px-6 py-4 text-gray-500">
+                                    No coupons available.
+                                </td>
+                            </tr>
+                        )}
+                    </tbody>
+                </table>
+            </div>
 
             {/* Modal */}
             {isModalOpen && (

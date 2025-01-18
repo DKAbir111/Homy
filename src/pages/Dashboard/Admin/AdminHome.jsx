@@ -3,10 +3,22 @@ import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 import { PieChart, Pie, Cell, Tooltip as RechartsTooltip } from "recharts";
-
+import { FaArrowTrendUp, FaUserCheck } from "react-icons/fa6";
+import { PiBuildingApartmentFill } from "react-icons/pi";
+import { IoMdCheckmarkCircleOutline } from "react-icons/io";
+import { CgUnavailable } from "react-icons/cg";
+import { FaUserFriends } from "react-icons/fa";
 export default function AdminHome() {
     const axiosSecure = useAxiosSecure();
-    const [stats, setStats] = useState({});
+    const [stats, setStats] = useState({
+        totalRevenue: 0,
+        totalApartment: 0,
+        availableApartment: 0,
+        totalrentedApartment: 0,
+        totalUser: 0,
+        totalMember: 0,
+        paymentByMonth: [],
+    });
     const { user } = useAuth();
 
     useEffect(() => {
@@ -23,7 +35,7 @@ export default function AdminHome() {
         { name: "Unavailable Rooms", value: stats.totalrentedApartment || 0 },
     ];
 
-    const COLORS = ["#34D399", "#EF4444"]; // Green for available, Red for unavailable
+    const COLORS = ["#00000", "#FF6725"]; // Green for available, Red for unavailable
 
     // Prepare paymentByMonth data for the bar chart
     const paymentByMonthStats = stats.paymentByMonth?.map(payment => ({
@@ -32,10 +44,10 @@ export default function AdminHome() {
     }));
 
     return (
-        <div className="min-h-screen bg-gray-100 p-8">
+        <div className="min-h-screen py-5">
             <div className="max-w-6xl mx-auto">
                 {/* Admin Information */}
-                <div className="rounded-lg shadow-lg p-6 flex items-center justify-between">
+                <div className="rounded-lg shadow-lg p-6 flex items-center justify-between bg-white">
                     <div className="flex items-center gap-6">
                         <img
                             src={user?.photoURL}
@@ -52,41 +64,59 @@ export default function AdminHome() {
                 {/* Stats Section */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
                     {/* Total Revenue */}
-                    <div className="bg-white rounded-lg shadow-lg p-6 text-center">
-                        <h2 className="text-lg font-semibold text-gray-600">Total Revenue</h2>
-                        <p className="text-4xl font-bold text-indigo-600">{stats.totalRevenue}</p>
+                    <div className="bg-white rounded-lg shadow-lg py-6 px-10 text-center flex items-center justify-between">
+                        <div>
+                            <h2 className=" text-gray-500">Total Revenue</h2>
+                            <p className="text-4xl font-bold text-primary-color">{stats.totalRevenue} $</p>
+                        </div>
+                        <span className="text-2xl text-white h-16 w-16 bg-primary-color flex justify-center items-center rounded-full shadow-lg shadow-orange-300">  <FaArrowTrendUp /></span>
                     </div>
 
                     {/* Total Rooms */}
-                    <div className="bg-white rounded-lg shadow-lg p-6 text-center">
-                        <h2 className="text-lg font-semibold text-gray-600">Total Rooms</h2>
-                        <p className="text-4xl font-bold text-indigo-600">{stats.totalApartment}</p>
+                    <div className="bg-white rounded-lg shadow-lg py-6 px-10 text-center flex items-center justify-between">
+                        <div>
+                            <h2 className="text-gray-500">Total Rooms</h2>
+                            <p className="text-4xl font-bold">{stats.totalApartment}</p>
+                        </div>
+                        <span className="text-2xl text-white h-16 w-16 bg-black flex justify-center items-center rounded-full shadow-lg shadow-gray-400">  <PiBuildingApartmentFill /> </span>
                     </div>
 
                     {/* Available Rooms */}
-                    <div className="bg-white rounded-lg shadow-lg p-6 text-center">
-                        <h2 className="text-lg font-semibold text-gray-600">Available Rooms</h2>
-                        <p className="text-4xl font-bold text-green-500">{availablePercentage}%</p>
-                        <p className="text-sm text-gray-500">{stats.availableApartment} Rooms</p>
+                    <div className="bg-white rounded-lg shadow-lg py-6 px-10 text-center flex items-center justify-between">
+                        <div>
+                            <h2 className="text-gray-500">Available Rooms</h2>
+                            <p className="text-4xl font-bold text-primary-color">{availablePercentage}%</p>
+                            <p className="text-xs text-gray-400">{stats.availableApartment} Rooms</p>
+                        </div>
+                        <span className="text-2xl text-white h-16 w-16 bg-primary-color flex justify-center items-center rounded-full shadow-lg shadow-orange-300"> <IoMdCheckmarkCircleOutline /> </span>
                     </div>
 
                     {/* Unavailable Rooms */}
-                    <div className="bg-white rounded-lg shadow-lg p-6 text-center">
-                        <h2 className="text-lg font-semibold text-gray-600">Unavailable Rooms</h2>
-                        <p className="text-4xl font-bold text-red-500">{unavailablePercentage}%</p>
-                        <p className="text-sm text-gray-500">{stats.totalrentedApartment} Rooms</p>
+                    <div className="bg-white rounded-lg shadow-lg py-6 px-10 text-center flex items-center justify-between">
+                        <div>
+                            <h2 className="text-gray-500">Unavailable Rooms</h2>
+                            <p className="text-4xl font-bold">{unavailablePercentage}%</p>
+                            <p className="text-xs text-gray-500">{stats.totalrentedApartment} Rooms</p>
+                        </div>
+                        <span className="text-2xl text-white h-16 w-16 bg-black flex justify-center items-center rounded-full shadow-lg shadow-gray-400"> <CgUnavailable /> </span>
                     </div>
 
                     {/* Total Users */}
-                    <div className="bg-white rounded-lg shadow-lg p-6 text-center">
-                        <h2 className="text-lg font-semibold text-gray-600">Total Users</h2>
-                        <p className="text-4xl font-bold text-indigo-600">{stats.totalUser}</p>
+                    <div className="bg-white rounded-lg shadow-lg py-6 px-10 text-center flex items-center justify-between">
+                        <div>
+                            <h2 className="text-gray-500">Total Users</h2>
+                            <p className="text-4xl font-bold">{stats.totalUser}</p>
+                        </div>
+                        <span className="text-2xl text-white h-16 w-16 flex bg-black justify-center items-center rounded-full shadow-lg shadow-gray-400"> <FaUserFriends /> </span>
                     </div>
 
                     {/* Total Members */}
-                    <div className="bg-white rounded-lg shadow-lg p-6 text-center">
-                        <h2 className="text-lg font-semibold text-gray-600">Total Members</h2>
-                        <p className="text-4xl font-bold text-indigo-600">{stats.totalMember}</p>
+                    <div className="bg-white rounded-lg shadow-lg py-6 px-10 text-center flex items-center justify-between">
+                        <div>
+                            <h2 className="text-gray-500">Total Members</h2>
+                            <p className="text-4xl font-bold">{stats.totalMember}</p>
+                        </div>
+                        <span className="text-2xl text-white h-16 w-16 bg-black flex justify-center items-center rounded-full shadow-lg shadow-gray-400"> <FaUserCheck /></span>
                     </div>
                 </div>
 
@@ -94,7 +124,7 @@ export default function AdminHome() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
                     {/* Bar Chart for Monthly Payments */}
                     <div className="bg-white rounded-lg shadow-lg p-6">
-                        <h2 className="text-lg font-semibold text-gray-600 text-center mb-4">
+                        <h2 className="text-lg font-semibold  text-center mb-4">
                             Monthly Payment Statistics
                         </h2>
                         <ResponsiveContainer width="100%" height={400}>
@@ -104,17 +134,17 @@ export default function AdminHome() {
                                 <YAxis />
                                 <Tooltip />
                                 <Legend />
-                                <Bar dataKey="totalPaid" fill="#4F46E5" />
+                                <Bar dataKey="totalPaid" fill="#FF6725" />
                             </BarChart>
                         </ResponsiveContainer>
                     </div>
 
                     {/* Pie Chart for Room Availability */}
-                    <div className="bg-white rounded-lg shadow-lg p-6">
-                        <h2 className="text-lg font-semibold text-gray-600 text-center mb-4">
+                    <div className="bg-white rounded-lg shadow-lg p-6 flex justify-center items-center flex-col">
+                        <h2 className="text-lg font-semibold text-center mb-4">
                             Room Availability Chart
                         </h2>
-                        <ResponsiveContainer width="100%" height={300}>
+                        <ResponsiveContainer width="100%" height={400}>
                             <PieChart>
                                 <Pie
                                     data={pieChartData}

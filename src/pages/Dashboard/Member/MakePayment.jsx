@@ -22,12 +22,12 @@ export default function MakePayment() {
     };
 
     return (
-        <div className="p-6 min-h-screen">
-            <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-lg p-8">
+        <div className="min-h-screen flex items-center justify-center">
+            <div className="max-w-3xl w-full bg-white shadow-lg rounded-lg p-8">
                 <h2 className="text-2xl font-semibold text-center mb-6">Make Payment</h2>
                 {info && (
                     <form>
-                        <div className="grid grid-cols-2 gap-4 mb-6">
+                        <div className="grid md:grid-cols-2 gap-4 mb-6">
                             <div>
                                 <label className="block text-gray-600 font-medium">Member Email</label>
                                 <input type="text" value={info.email} readOnly className="w-full p-2 border rounded" />

@@ -3,7 +3,7 @@ import logo from '../../assets/logo.svg'
 import { CgProfile } from "react-icons/cg";
 import { MdOutlineAnnouncement, MdOutlineApartment } from "react-icons/md";
 import { MdOutlinePayments } from "react-icons/md";
-import { FaHistory } from "react-icons/fa";
+import { FaBars, FaHistory } from "react-icons/fa";
 import { FaUserCog } from "react-icons/fa";
 import { GrAnnounce } from "react-icons/gr";
 import { IoMdHome, IoMdPaper } from "react-icons/io";
@@ -16,8 +16,9 @@ export default function SideBar() {
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col items-center justify-center">
                 {/* Page content here */}
-                <label htmlFor="my-drawer-2" className="btn btn-primary drawer-button lg:hidden">
-                    Open drawer
+                <label htmlFor="my-drawer-2" className="btn btn-primary text-xl drawer-button rounded-sm lg:hidden absolute top-1 left-1 bg-primary-color border-none">
+                    <FaBars />
+
                 </label>
             </div>
             <div className="drawer-side">
