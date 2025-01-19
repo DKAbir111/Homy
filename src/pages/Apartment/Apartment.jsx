@@ -39,21 +39,23 @@ export default function Apartment() {
     return (
         <div className="p-8 bg-design-color">
             {/* Search Filters */}
-            <div className="mb-4 flex justify-center items-center gap-4">
-                <input
-                    type="number"
-                    value={minRent}
-                    onChange={(e) => setMinRent(e.target.value)}
-                    placeholder="Min Rent"
-                    className="border border-gray-300 p-2 rounded"
-                />
-                <input
-                    type="number"
-                    value={maxRent}
-                    onChange={(e) => setMaxRent(e.target.value)}
-                    placeholder="Max Rent"
-                    className="border border-gray-300 p-2 rounded"
-                />
+            <div className="mb-4 flex justify-center items-center gap-4 flex-col md:flex-row px-4">
+                <span className="flex justify-center items-center gap-4">
+                    <input
+                        type="number"
+                        value={minRent}
+                        onChange={(e) => setMinRent(e.target.value)}
+                        placeholder="Min Rent"
+                        className="border border-gray-300 p-2 rounded"
+                    />
+                    <input
+                        type="number"
+                        value={maxRent}
+                        onChange={(e) => setMaxRent(e.target.value)}
+                        placeholder="Max Rent"
+                        className="border border-gray-300 p-2 rounded"
+                    />
+                </span>
                 <button
                     onClick={handleSearch}
                     className="px-4 py-2 bg-primary-color text-white rounded"

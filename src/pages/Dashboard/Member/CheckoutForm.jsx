@@ -1,7 +1,7 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
 
@@ -13,7 +13,7 @@ export default function CheckoutForm() {
     const [clientSecret, setClientSecret] = useState("");
     const [coupon, setCoupon] = useState("");
     const [discount, setDiscount] = useState(0);
-
+    const navigate = useNavigate()
     // Safely retrieve rent amount from state
     let { state } = useLocation();
     const initialRent = state?.info?.rent || 0;
@@ -115,6 +115,7 @@ export default function CheckoutForm() {
                                 `,
                                 confirmButtonText: "OK",
                             });
+                            navigate('/dashboard/payment-history')
                         }
                     });
                 }

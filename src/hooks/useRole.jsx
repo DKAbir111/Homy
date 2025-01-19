@@ -8,7 +8,7 @@ export default function useRole() {
     const { user, loading } = useAuth()
     const { data: role, isPending: roleLoading } = useQuery({
         queryKey: ['role', user?.email],
-        enabled: !loading,
+        enabled: !!user?.email && !loading,
         queryFn: async () => {
             const res = await axiosSecure.get(`/role/${user?.email}`)
             // console.log(res.data.admin)

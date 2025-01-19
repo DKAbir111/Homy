@@ -11,29 +11,34 @@ const axiosSecure = axios.create({
 
 
 export default function useAxiosSecure() {
-    const { logOut } = useAuth()
-    const navigate = useNavigate()
-    // Add a request interceptor
-    axiosSecure.interceptors.request.use(function (config) {
-        config.headers.authorization = `Bearer ${localStorage.getItem('access-token')}`
-        return config;
-    }, function (error) {
-        return Promise.reject(error);
-    })
+    const { logOut, user } = useAuth(); // Access the user object
+    const navigate = useNavigate();
 
-    // Add a response interceptor and handle 401 and 403
-    axiosSecure.interceptors.response.use(function (response) {
-        return response;
-    }, function (error) {
-        const status = error.response.status;
-        if (status === 401 || status === 403) {
-            localStorage.removeItem('access-token');
-            navigate('/auth/login');
-            logOut()
+    axiosSecure.interceptors.request.use(
+        (config) => {
+            // Add the token to the request headers
+            const token = localStorage.getItem('access-token');
+            if (token) {
+                config.headers.authorization = `Bearer ${token}`;
+            }
+            return config;
+        },
+        (error) => Promise.reject(error)
+    );
 
+    axiosSecure.interceptors.response.use(
+        (response) => response,
+        (error) => {
+            const status = error.response?.status;
+            if ((status === 401 || status === 403) && user) {
+                localStorage.removeItem('access-token');
+                logOut().then(() => {
+                    navigate('/auth/login');
+                });
+            }
+            return Promise.reject(error);
         }
-        return Promise.reject(error);
-    });
-    return axiosSecure
+    );
 
+    return axiosSecure;
 }

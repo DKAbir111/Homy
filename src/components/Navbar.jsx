@@ -13,6 +13,7 @@ export default function Navbar() {
     }
 
     const [role] = useRole()
+
     const navlinks = <>
         <li><NavLink to={'/'}>Home</NavLink></li>
         <li><NavLink to={'/apartment'}>Apartment</NavLink></li>
