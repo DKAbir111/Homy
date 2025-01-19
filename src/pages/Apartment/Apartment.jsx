@@ -39,7 +39,7 @@ export default function Apartment() {
     return (
         <div className="p-8 bg-design-color">
             {/* Search Filters */}
-            <div className="mb-4 flex justify-center items-center gap-4 flex-col md:flex-row px-4">
+            <div className="mb-4 flex justify-center items-center gap-4 flex-col md:flex-row">
                 <span className="flex justify-center items-center gap-4">
                     <input
                         type="number"
