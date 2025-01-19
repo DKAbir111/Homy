@@ -53,7 +53,8 @@ const ManageCoupon = () => {
         const newCoupon = {
             code,
             discount,
-            description
+            description,
+            status: 'available'
         };
         axiosSecure.post('/coupon', newCoupon)
             .then(res => {
@@ -64,6 +65,24 @@ const ManageCoupon = () => {
                 }
             });
     };
+
+    const handleAvailability = (id, status) => {
+        let newStatus = ''
+        if (status === 'available') {
+            newStatus = 'unavailable';
+        }
+        if (status === 'unavailable') {
+            newStatus = 'available';
+        }
+        axiosSecure.patch(`/coupon/availability?id=${id}&status=${newStatus}`)
+            .then(res => {
+                if (res.data.modifiedCount > 0) {
+                    toast.success("Status updated successfully")
+                    refetch()
+                }
+            })
+        console.log(id, status)
+    }
 
     return (
         <div className="min-h-screen pt-5">
@@ -97,15 +116,22 @@ const ManageCoupon = () => {
                         {coupons.length > 0 ? (
                             coupons.map((coupon) => (
                                 <tr key={coupon._id} className="hover:bg-gray-50 border-b">
-                                    <td className="px-6 py-4">{coupon.code}</td>
-                                    <td className="px-6 py-4 text-center">{coupon.discount}%</td>
-                                    <td className="px-6 py-4">{coupon.description}</td>
+                                    <td className={`px-6 py-4 ${coupon.status === "unavailable" ? "line-through" : ""}`}>{coupon.code}</td>
+                                    <td className={`px-6 py-4 text-center ${coupon.status === "unavailable" ? "line-through" : ""}`}>{coupon.discount}%</td>
+                                    <td className={`px-6 py-4 ${coupon.status === "unavailable" ? "line-through" : ""}`}>{coupon.description}</td>
                                     <td className="px-6 py-4 text-center flex justify-center gap-4">
                                         <button
                                             onClick={() => handleDeleteCoupon(coupon._id)}
                                             className="btn btn-sm rounded-sm btn-error text-white"
                                         >
                                             Delete
+                                        </button>
+                                        {/* Availability */}
+                                        <button
+                                            onClick={() => handleAvailability(coupon._id, coupon.status)}
+                                            className={`btn btn-sm rounded-sm  btn-outline ${coupon.status === "available" ? 'btn-success' : 'btn-error'}`}
+                                        >
+                                            {coupon?.status === "available" ? 'Available' : 'Unavailable'}
                                         </button>
                                     </td>
                                 </tr>
@@ -132,7 +158,7 @@ const ManageCoupon = () => {
                                 <input
                                     type="text"
                                     name="code"
-                                    className="w-full mt-1 px-3 py-2 border rounded shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                                    className="w-full mt-1 px-3 py-2 border rounded shadow-sm"
                                     placeholder="Enter coupon code"
                                     required
                                 />
@@ -142,7 +168,7 @@ const ManageCoupon = () => {
                                 <input
                                     type="number"
                                     name="discount"
-                                    className="w-full mt-1 px-3 py-2 border rounded shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                                    className="w-full mt-1 px-3 py-2 border rounded shadow-sm"
                                     placeholder="Enter discount percentage"
                                     required
                                 />
@@ -151,7 +177,7 @@ const ManageCoupon = () => {
                                 <label className="block text-sm font-medium text-gray-700">Description</label>
                                 <textarea
                                     name="description"
-                                    className="w-full mt-1 px-3 py-2 border rounded shadow-sm focus:ring-blue-500 focus:border-blue-500"
+                                    className="w-full mt-1 px-3 py-2 border rounded shadow-sm"
                                     placeholder="Enter a brief description"
                                     rows="4"
                                     required
@@ -167,7 +193,7 @@ const ManageCoupon = () => {
                                 </button>
                                 <button
                                     type="submit"
-                                    className="px-4 py-2 bg-green-500 text-white rounded shadow hover:bg-green-600"
+                                    className="px-4 py-2 bg-primary-color text-white rounded shadow hover:bg-orange-600"
                                 >
                                     Save
                                 </button>

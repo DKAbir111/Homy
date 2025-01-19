@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import useAuth from "./useAuth"
 
 const axiosSecure = axios.create({
-    baseURL: "https://building-management-server-psi.vercel.app/api",
+    baseURL: "http://localhost:5001/api",
     // headers: {
     //     'authorization': `Bearer ${localStorage.getItem('access-token')}`
     // }

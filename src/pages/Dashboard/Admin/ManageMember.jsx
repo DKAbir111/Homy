@@ -18,7 +18,7 @@ export default function ManageMember() {
     });
 
     // Handle Role demotion
-    const handleRole = (id) => {
+    const handleRole = (email) => {
         Swal.fire({
             title: "Are you sure?",
             text: "You are about to demote this user. This action cannot be undone!",
@@ -29,7 +29,7 @@ export default function ManageMember() {
             confirmButtonText: "Yes, demote user!",
         }).then((result) => {
             if (result.isConfirmed) {
-                axiosSecure.patch(`/user/${id}`)
+                axiosSecure.patch(`/user/${email}`)
                     .then(res => {
                         if (res.data.modifiedCount > 0) {
                             Swal.fire({
@@ -100,7 +100,7 @@ export default function ManageMember() {
                                             </span>
                                         </td>
                                         <td>
-                                            <button onClick={() => handleRole(user._id)} className="btn bg-primary-color text-white">
+                                            <button onClick={() => handleRole(user.email)} className="btn bg-primary-color text-white">
                                                 <MdRemoveModerator className="text-xl" />
                                             </button>
                                         </td>

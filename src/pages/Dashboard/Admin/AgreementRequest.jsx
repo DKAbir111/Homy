@@ -33,6 +33,7 @@ const AgreementRequest = () => {
             .then((res) => {
                 if (res.data.result.modifiedCount > 0) {
                     Swal.fire("Rejected!", "The agreement has been rejected.", "warning");
+                    refetch()
                 }
             })
             .catch((err) => {
