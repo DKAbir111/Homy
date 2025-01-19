@@ -42,7 +42,7 @@ export default function Register() {
             })
             .catch(err => {
                 console.log(err)
-                toast.error(err)
+                toast.error(err.message)
             })
     }
 

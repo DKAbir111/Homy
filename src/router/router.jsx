@@ -20,11 +20,13 @@ import StripePayment from "../pages/Dashboard/Member/StripePayment";
 import AdminHome from "../pages/Dashboard/Admin/AdminHome";
 import MemberRoute from "./MemberRoute";
 import AdminRoute from "./AdminRoute";
+import ErrorPage from "../pages/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout />,
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: "/",

@@ -11,20 +11,20 @@ const Footer = () => {
                 <div>
                     <img src={logo} alt="Blog Logo" className="w-1/2" />
                     <p className="mt-2 text-sm">
-                        Your ultimate destination for insightful blogs, expert tips, and the latest trends.
+                        Explore insightful articles, expert opinions, and the latest trends in technology, design, and personal growth.
                     </p>
                     <div className="flex space-x-3 mt-4">
-                        <a href="#" className="text-gray-400 hover:text-white">
-                            <i className="fab fa-facebook"></i>
+                        <a href="#" className="text-gray-400 hover:text-white" aria-label="Facebook">
+                            <FaFacebook />
                         </a>
-                        <a href="#" className="text-gray-400 hover:text-white">
-                            <i className="fab fa-instagram"></i>
+                        <a href="#" className="text-gray-400 hover:text-white" aria-label="Instagram">
+                            <FaInstagram />
                         </a>
-                        <a href="#" className="text-gray-400 hover:text-white">
-                            <i className="fab fa-twitter"></i>
+                        <a href="#" className="text-gray-400 hover:text-white" aria-label="Twitter">
+                            <FaTwitter />
                         </a>
-                        <a href="#" className="text-gray-400 hover:text-white">
-                            <i className="fab fa-telegram"></i>
+                        <a href="#" className="text-gray-400 hover:text-white" aria-label="Telegram">
+                            <FaTelegram />
                         </a>
                     </div>
                 </div>
@@ -35,22 +35,22 @@ const Footer = () => {
                     <ul className="space-y-2 text-sm">
                         <li>
                             <a href="#" className="hover:underline">
-                                Technology
+                                Tech Innovations
                             </a>
                         </li>
                         <li>
                             <a href="#" className="hover:underline">
-                                Programming
+                                Coding Tips
                             </a>
                         </li>
                         <li>
                             <a href="#" className="hover:underline">
-                                Design
+                                Design Trends
                             </a>
                         </li>
                         <li>
                             <a href="#" className="hover:underline">
-                                Personal Development
+                                Lifestyle Insights
                             </a>
                         </li>
                     </ul>
@@ -58,21 +58,21 @@ const Footer = () => {
 
                 {/* Featured Sections */}
                 <div>
-                    <h3 className="text-lg font-semibold mb-4">Featured Sections</h3>
+                    <h3 className="text-lg font-semibold mb-4">Must-Read</h3>
                     <ul className="space-y-2 text-sm">
                         <li>
                             <a href="#" className="hover:underline">
-                                Latest Articles
+                                Top Programming Guides
                             </a>
                         </li>
                         <li>
                             <a href="#" className="hover:underline">
-                                Popular Reads
+                                Design Mastery
                             </a>
                         </li>
                         <li>
                             <a href="#" className="hover:underline">
-                                Expert Opinions
+                                Productivity Hacks
                             </a>
                         </li>
                     </ul>
@@ -82,14 +82,10 @@ const Footer = () => {
                 <div>
                     <h3 className="text-lg font-semibold mb-4">Stay Updated</h3>
                     <p className="text-sm mb-2">
-                        Subscribe to our newsletter and never miss an update.
+                        Subscribe to our newsletter for the latest updates and expert insights.
                     </p>
                     <div className="flex items-center space-x-3">
-                        <img
-                            src={qr}
-                            alt="QR Code"
-                            className="w-20"
-                        />
+                        <img src={qr} alt="QR Code" className="w-20" />
                         <a href="#" className="block">
                             <img
                                 src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
@@ -110,13 +106,21 @@ const Footer = () => {
                 <div>
                     <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
                     <div className="text-xl flex gap-3">
-                        <a href="https://www.facebook.com/darulkararabir/" target="_blank" rel="noopener noreferrer"><FaFacebook /></a>
-                        <a href="#" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
-                        <a href="#" target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
-                        <a href="#" target="_blank" rel="noopener noreferrer"><FaTelegram /></a>
+                        <a href="https://www.facebook.com/darulkararabir/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                            <FaFacebook />
+                        </a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                            <FaInstagram />
+                        </a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                            <FaTwitter />
+                        </a>
+                        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+                            <FaTelegram />
+                        </a>
                     </div>
                     <p className="text-sm mt-2">
-                        Connect with us for the latest blog updates, tips, and trends!
+                        Connect with us to stay inspired and informed.
                     </p>
                 </div>
 
@@ -124,21 +128,21 @@ const Footer = () => {
                 <div>
                     <h3 className="text-lg font-semibold mb-4">Write for Us</h3>
                     <p className="text-sm">
-                        Passionate about sharing knowledge? Join our community of writers.
+                        Have valuable insights to share? Join our team of contributors.
                     </p>
                     <a
                         href="#"
                         className="mt-2 inline-block text-[#b28b51] hover:underline font-medium text-sm"
                     >
-                        Learn More
+                        Become a Writer
                     </a>
                 </div>
 
                 {/* Newsletter Subscription */}
                 <div>
-                    <h3 className="text-lg font-semibold mb-4">Subscribe to Our Newsletter</h3>
+                    <h3 className="text-lg font-semibold mb-4">Join Our Newsletter</h3>
                     <p className="text-sm mb-4">
-                        Stay in the loop with the latest blog posts and updates.
+                        Get weekly updates on trending topics and expert articles.
                     </p>
                     <div className="flex md:flex-col lg:flex-row lg:flex">
                         <input

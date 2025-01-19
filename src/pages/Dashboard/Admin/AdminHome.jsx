@@ -44,7 +44,7 @@ export default function AdminHome() {
     }));
 
     return (
-        <div className="min-h-screen py-5">
+        <div className="min-h-screen p-5">
             <div className="max-w-6xl mx-auto">
                 {/* Admin Information */}
                 <div className="rounded-lg shadow-lg p-6 flex items-center justify-between bg-white">
