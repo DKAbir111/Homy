@@ -12,6 +12,7 @@ const slides = [
 
 export default function Banner() {
     const settings = {
+
         infinite: true,
         speed: 500,
         slidesToShow: 1,
@@ -27,7 +28,7 @@ export default function Banner() {
             style={{ backgroundImage: `url(${banner})` }}
         >
             {/* Slider Section */}
-            <div className="max-w-screen-lg mx-auto text-center space-y-5">
+            <div className="w-10/12 mx-auto text-center space-y-5 overflow-hidden border">
                 <Slider {...settings}>
                     {slides.map((slide, index) => (
                         <div key={index}>

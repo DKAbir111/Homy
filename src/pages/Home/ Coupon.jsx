@@ -6,28 +6,28 @@ import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 
-
-
 export default function Coupon() {
-    const [coupons, setCoupons] = useState([])
-    const axiosPublic = useAxiosPublic()
+    const [coupons, setCoupons] = useState([]);
+    const axiosPublic = useAxiosPublic();
+
     useEffect(() => {
         axiosPublic.get('/coupon')
             .then(res => setCoupons(res.data))
-    }, [axiosPublic])
+    }, [axiosPublic]);
+
     return (
         <section
             className="relative bg-design-color p-10 rounded-xl bg-fixed flex flex-col md:flex-row items-center gap-6 justify-between"
             style={{ backgroundImage: `url(${building})` }}
         >
             {/* Left Section */}
-            <div className="space-y-5 w-1/2">
-                <h2 className="text-5xl font-bold text-gray-800">
+            <div className="space-y-5 w-full md:w-1/2">
+                <h2 className="text-3xl md:text-5xl font-bold text-gray-800">
                     Exclusive <span className="text-primary-color">Monthly Coupons</span>
                     <br />
                     Just for You!
                 </h2>
-                <p className="text-lg text-gray-600">
+                <p className="text-base md:text-lg text-gray-600">
                     Don’t miss out on these personalized monthly exclusive offers for you.
                 </p>
                 <PrimaryButton text="More Details" />
