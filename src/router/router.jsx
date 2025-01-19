@@ -18,6 +18,8 @@ import MakePayment from "../pages/Dashboard/Member/MakePayment";
 import PaymentHistory from "../pages/Dashboard/Member/PaymentHistory";
 import StripePayment from "../pages/Dashboard/Member/StripePayment";
 import AdminHome from "../pages/Dashboard/Admin/AdminHome";
+import MemberRoute from "./MemberRoute";
+import AdminRoute from "./AdminRoute";
 
 const router = createBrowserRouter([
     {
@@ -61,38 +63,38 @@ const router = createBrowserRouter([
             // admin dashboard
             {
                 path: 'admin',
-                element: <PrivateRoute><AdminHome /> </PrivateRoute>
+                element: <AdminRoute><PrivateRoute><AdminHome /> </PrivateRoute></AdminRoute>
 
             },
             {
                 path: 'manage-member',
-                element: <PrivateRoute><ManageMember /> </PrivateRoute>
+                element: <AdminRoute><PrivateRoute><ManageMember /> </PrivateRoute></AdminRoute>
 
             },
             {
                 path: "make-announcement",
-                element: <PrivateRoute><MakeAnnouncement /> </PrivateRoute>
+                element: <AdminRoute><PrivateRoute><MakeAnnouncement /> </PrivateRoute></AdminRoute>
             },
             {
                 path: "manage-coupon",
-                element: <PrivateRoute><ManageCoupon /> </PrivateRoute>
+                element: <AdminRoute><PrivateRoute><ManageCoupon /> </PrivateRoute></AdminRoute>
             },
             {
                 path: "agreement-request",
-                element: <PrivateRoute> <AgreementRequest /> </PrivateRoute>
+                element: <AdminRoute> <PrivateRoute> <AgreementRequest /> </PrivateRoute></AdminRoute>
             },
             // member dashboard
             {
                 path: "make-payment",
-                element: <PrivateRoute> <MakePayment /> </PrivateRoute>
+                element: <MemberRoute><PrivateRoute> <MakePayment /> </PrivateRoute></MemberRoute>
             },
             {
                 path: 'payment-history',
-                element: <PrivateRoute> <PaymentHistory /> </PrivateRoute>
+                element: <MemberRoute><PrivateRoute> <PaymentHistory /> </PrivateRoute></MemberRoute>
             },
             {
                 path: 'stripe-pay',
-                element: <PrivateRoute> <StripePayment /> </PrivateRoute>
+                element: <MemberRoute> <PrivateRoute> <StripePayment /> </PrivateRoute></MemberRoute>
             }
 
 
