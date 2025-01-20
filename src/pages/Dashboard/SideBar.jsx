@@ -12,7 +12,7 @@ import useRole from "../../hooks/useRole";
 export default function SideBar() {
     const [role] = useRole()
     return (
-        <div className="drawer lg:drawer-open">
+        <div className="drawer lg:drawer-open z-10">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col items-center justify-center">
                 {/* Page content here */}
