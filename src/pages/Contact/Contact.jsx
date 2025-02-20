@@ -8,7 +8,7 @@ export default function Contact() {
                     Questions? Feel Free to Reach Out Via Message.
                 </h2>
 
-                <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16 mt-20">
+                <div className="grid grid-cols-1 md:grid-cols-3  gap-10 mt-20">
                     {/* Email Contact */}
                     <div className="flex items-center gap-4">
                         <div className="bg-black p-4 rounded-full">
@@ -16,12 +16,12 @@ export default function Contact() {
                         </div>
                         <div className="text-left">
                             <p className="text-gray-700 font-medium">We’re always happy to help.</p>
-                            <p className="text-gray-500">info@example.com</p>
+                            <p className="text-gray-500">darunkaras28111@gmail.com</p>
                         </div>
                     </div>
 
                     {/* Divider */}
-                    <div className="hidden md:block border-r border-gray-300 h-10"></div>
+                    <div className="hidden lg:block border-r border-gray-300 h-10"></div>
 
                     {/* Hotline Contact */}
                     <div className="flex items-center gap-4">
@@ -30,12 +30,12 @@ export default function Contact() {
                         </div>
                         <div className="text-left">
                             <p className="text-gray-700 font-medium">Our hotline number</p>
-                            <p className="text-gray-500">+123-456-789, +111-222-333</p>
+                            <p className="text-gray-500">+8801994494143</p>
                         </div>
                     </div>
 
                     {/* Divider */}
-                    <div className="hidden md:block border-r border-gray-300 h-10"></div>
+                    <div className="hidden lg:block border-r border-gray-300 h-10"></div>
 
                     {/* Live Chat Contact */}
                     <div className="flex items-center gap-4">
@@ -51,9 +51,9 @@ export default function Contact() {
             </div>
 
             {/* second portion */}
-            <div className="flex flex-col md:flex-row items-center justify-center w-full min-h-screen p-6 bg-design-color gap-10 mt-20">
+            <div className="flex flex-col lg:flex-row items-center justify-center w-full min-h-screen p-6 bg-design-color gap-10 mt-20">
                 {/* Left Side - Google Map */}
-                <div className="w-full md:w-1/2 h-[555px] overflow-hidden">
+                <div className="w-full lg:w-1/2 h-[555px] overflow-hidden">
                     <iframe
                         className="w-full h-full"
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7305.1528730648045!2d90.3842533!3d23.8103312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c779c16b630f%3A0x40847df0c3df5687!2sDhaka!5e0!3m2!1sen!2sbd!4v1646578890725!5m2!1sen!2sbd"
@@ -65,7 +65,7 @@ export default function Contact() {
                 </div>
 
                 {/* Right Side - Contact Form */}
-                <div className="w-full md:w-1/2 p-6 ">
+                <div className="w-full lg:w-1/2 p-6 ">
                     <h2 className="text-3xl font-bold mb-6 text-gray-900">Send Message</h2>
                     <form className="space-y-4">
                         <div>
