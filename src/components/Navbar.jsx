@@ -18,9 +18,10 @@ export default function Navbar() {
     const navlinks = <>
         <li><NavLink to={'/'}>Home</NavLink></li>
         <li><NavLink to={'/apartment'}>Apartment</NavLink></li>
+        <li><NavLink to={'/contact'}>Contact Us</NavLink></li>
     </>
     return (
-        <nav className={`navbar bg-design-color fixed py-3 z-30 ${scrollY && "shadow-md"}`}>
+        <nav className={`navbar bg-design-color fixed py-3 z-30 ${scrollY && "shadow-md bg-[#FBDDD1]"}`}>
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

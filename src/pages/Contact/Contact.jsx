@@ -1,0 +1,102 @@
+import { FaMapMarkerAlt } from "react-icons/fa";
+
+export default function Contact() {
+    return (
+        <div className="min-h-screen pt-[75px]">
+            <div className="w-full px-6 pt-20 bg-white text-center">
+                <h2 className="text-3xl md:text-5xl lg:text-7xl font-semibold mb-6 ">
+                    Questions? Feel Free to Reach Out Via Message.
+                </h2>
+
+                <div className="flex flex-col md:flex-row items-center justify-center gap-10 md:gap-16 mt-20">
+                    {/* Email Contact */}
+                    <div className="flex items-center gap-4">
+                        <div className="bg-black p-4 rounded-full">
+                            <FaMapMarkerAlt className="text-white text-2xl" />
+                        </div>
+                        <div className="text-left">
+                            <p className="text-gray-700 font-medium">We’re always happy to help.</p>
+                            <p className="text-gray-500">info@example.com</p>
+                        </div>
+                    </div>
+
+                    {/* Divider */}
+                    <div className="hidden md:block border-r border-gray-300 h-10"></div>
+
+                    {/* Hotline Contact */}
+                    <div className="flex items-center gap-4">
+                        <div className="bg-black p-4 rounded-full">
+                            <FaMapMarkerAlt className="text-white text-2xl" />
+                        </div>
+                        <div className="text-left">
+                            <p className="text-gray-700 font-medium">Our hotline number</p>
+                            <p className="text-gray-500">+123-456-789, +111-222-333</p>
+                        </div>
+                    </div>
+
+                    {/* Divider */}
+                    <div className="hidden md:block border-r border-gray-300 h-10"></div>
+
+                    {/* Live Chat Contact */}
+                    <div className="flex items-center gap-4">
+                        <div className="bg-black p-4 rounded-full">
+                            <FaMapMarkerAlt className="text-white text-2xl" />
+                        </div>
+                        <div className="text-left">
+                            <p className="text-gray-700 font-medium">Live chat</p>
+                            <p className="text-gray-500">www.homylivechat.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* second portion */}
+            <div className="flex flex-col md:flex-row items-center justify-center w-full min-h-screen p-6 bg-design-color gap-10 mt-20">
+                {/* Left Side - Google Map */}
+                <div className="w-full md:w-1/2 h-[555px] overflow-hidden">
+                    <iframe
+                        className="w-full h-full"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7305.1528730648045!2d90.3842533!3d23.8103312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c779c16b630f%3A0x40847df0c3df5687!2sDhaka!5e0!3m2!1sen!2sbd!4v1646578890725!5m2!1sen!2sbd"
+                        allowFullScreen=""
+                        loading="lazy"
+                        title="Dhaka Map"
+                    ></iframe>
+
+                </div>
+
+                {/* Right Side - Contact Form */}
+                <div className="w-full md:w-1/2 p-6 ">
+                    <h2 className="text-3xl font-bold mb-6 text-gray-900">Send Message</h2>
+                    <form className="space-y-4">
+                        <div>
+                            <label className="label text-gray-700 font-semibold">Name*</label>
+                            <input
+                                type="text"
+                                placeholder="Your Name*"
+                                className="input input-bordered w-full"
+                            />
+                        </div>
+                        <div>
+                            <label className="label text-gray-700 font-semibold">Email*</label>
+                            <input
+                                type="email"
+                                placeholder="Email Address*"
+                                className="input input-bordered w-full"
+                            />
+                        </div>
+                        <div>
+                            <label className="label text-gray-700 font-semibold">Your Message*</label>
+                            <textarea
+                                placeholder="Your message*"
+                                className="textarea textarea-bordered w-full h-32"
+                            ></textarea>
+                        </div>
+                        <button className="btn bg-orange-500 hover:bg-orange-600 text-white w-full">
+                            SEND MESSAGE
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    )
+}

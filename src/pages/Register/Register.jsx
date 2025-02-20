@@ -58,7 +58,7 @@ export default function Register() {
     };
 
     return (
-        <div className="bg-base-100 min-h-screen flex justify-center items-center font-lato container mx-auto relative">
+        <div className="bg-base-100 min-h-screen flex justify-center items-center font-lato container mx-auto relative pt-[75px]">
             <div className="card bg-white shadow-lg rounded-sm p-8 w-full max-w-md">
                 <h2 className="text-2xl text-center mb-6 font-lustria font-bold">
                     Register

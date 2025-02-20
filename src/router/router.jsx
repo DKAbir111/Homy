@@ -21,6 +21,7 @@ import AdminHome from "../pages/Dashboard/Admin/AdminHome";
 import MemberRoute from "./MemberRoute";
 import AdminRoute from "./AdminRoute";
 import ErrorPage from "../pages/ErrorPage";
+import Contact from "../pages/Contact/Contact";
 
 const router = createBrowserRouter([
     {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
             {
                 path: "/apartment",
                 element: <Apartment />
+            },
+            {
+                path: "/contact",
+                element: <Contact />
             },
             {
                 path: "/auth/login",
