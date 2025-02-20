@@ -18,7 +18,6 @@ export default function SideBar() {
                 {/* Page content here */}
                 <label htmlFor="my-drawer-2" className="btn btn-primary text-xl drawer-button rounded-sm lg:hidden absolute top-1 left-1 bg-primary-color border-none">
                     <FaBars />
-
                 </label>
             </div>
             <div className="drawer-side">

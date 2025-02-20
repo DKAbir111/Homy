@@ -132,7 +132,7 @@ const Footer = () => {
                     </p>
                     <a
                         href="#"
-                        className="mt-2 inline-block text-[#b28b51] hover:underline font-medium text-sm"
+                        className="mt-2 inline-block hover:underline font-medium text-sm"
                     >
                         Become a Writer
                     </a>
@@ -150,7 +150,7 @@ const Footer = () => {
                             placeholder="Enter your email address"
                             className="px-4 py-2 rounded-l-sm bg-white text-black focus:outline-none focus:ring-2 focus:ring-[#b28b51]"
                         />
-                        <button className="bg-[#888888] px-4 py-2 lg:rounded-r-sm hover:bg-[#b28b51]">
+                        <button className="bg-[#888888] px-4 py-2 lg:rounded-r-sm hover:bg-primary-color">
                             Subscribe
                         </button>
                     </div>
@@ -159,7 +159,7 @@ const Footer = () => {
 
             {/* Copyright Section */}
             <div className="bg-design-color py-4 text-center text-sm text-black">
-                &copy; 2024 Your Blog Website. All rights reserved.
+                &copy; 2025 Your Blog Website. All rights reserved.
             </div>
         </footer>
     );
