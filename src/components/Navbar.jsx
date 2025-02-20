@@ -3,6 +3,7 @@ import logo from '../assets/logo.svg'
 import PrimaryButton from './PrimaryButton'
 import useAuth from '../hooks/useAuth'
 import useRole from '../hooks/useRole'
+import useScrollPosition from '../hooks/useScrollPosition'
 export default function Navbar() {
     const { user, logOut } = useAuth()
     const handleLogOut = () => {
@@ -13,13 +14,13 @@ export default function Navbar() {
     }
 
     const [role] = useRole()
-
+    const scrollY = useScrollPosition();
     const navlinks = <>
         <li><NavLink to={'/'}>Home</NavLink></li>
         <li><NavLink to={'/apartment'}>Apartment</NavLink></li>
     </>
     return (
-        <nav className="navbar bg-design-color">
+        <nav className={`navbar bg-design-color fixed py-3 z-30 ${scrollY && "shadow-md"}`}>
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

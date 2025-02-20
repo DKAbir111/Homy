@@ -9,9 +9,9 @@ const Footer = () => {
             <div className="container mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-4 gap-6">
                 {/* Company Info */}
                 <div>
-                    <img src={logo} alt="Blog Logo" className="w-1/2" />
+                    <img src={logo} alt="Homy Logo" className="w-1/2" />
                     <p className="mt-2 text-sm">
-                        Explore insightful articles, expert opinions, and the latest trends in technology, design, and personal growth.
+                        Homy simplifies property management by providing house owners with tools to oversee tenants, rent payments, and maintenance requests effortlessly.
                     </p>
                     <div className="flex space-x-3 mt-4">
                         <a href="#" className="text-gray-400 hover:text-white" aria-label="Facebook">
@@ -29,61 +29,31 @@ const Footer = () => {
                     </div>
                 </div>
 
-                {/* Explore Topics */}
+                {/* Features */}
                 <div>
-                    <h3 className="text-lg font-semibold mb-4">Explore Topics</h3>
+                    <h3 className="text-lg font-semibold mb-4">Features</h3>
                     <ul className="space-y-2 text-sm">
-                        <li>
-                            <a href="#" className="hover:underline">
-                                Tech Innovations
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" className="hover:underline">
-                                Coding Tips
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" className="hover:underline">
-                                Design Trends
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" className="hover:underline">
-                                Lifestyle Insights
-                            </a>
-                        </li>
+                        <li><a href="#" className="hover:underline">Tenant Management</a></li>
+                        <li><a href="#" className="hover:underline">Rent Collection</a></li>
+                        <li><a href="#" className="hover:underline">Maintenance Requests</a></li>
+                        <li><a href="#" className="hover:underline">Property Listings</a></li>
                     </ul>
                 </div>
 
-                {/* Featured Sections */}
+                {/* Resources */}
                 <div>
-                    <h3 className="text-lg font-semibold mb-4">Must-Read</h3>
+                    <h3 className="text-lg font-semibold mb-4">Resources</h3>
                     <ul className="space-y-2 text-sm">
-                        <li>
-                            <a href="#" className="hover:underline">
-                                Top Programming Guides
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" className="hover:underline">
-                                Design Mastery
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" className="hover:underline">
-                                Productivity Hacks
-                            </a>
-                        </li>
+                        <li><a href="#" className="hover:underline">Landlord Guide</a></li>
+                        <li><a href="#" className="hover:underline">Tenant Rights</a></li>
+                        <li><a href="#" className="hover:underline">Property Management Tips</a></li>
                     </ul>
                 </div>
 
-                {/* Newsletter */}
+                {/* Get the App */}
                 <div>
-                    <h3 className="text-lg font-semibold mb-4">Stay Updated</h3>
-                    <p className="text-sm mb-2">
-                        Subscribe to our newsletter for the latest updates and expert insights.
-                    </p>
+                    <h3 className="text-lg font-semibold mb-4">Get the App</h3>
+                    <p className="text-sm mb-2">Manage your properties anytime, anywhere.</p>
                     <div className="flex items-center space-x-3">
                         <img src={qr} alt="QR Code" className="w-20" />
                         <a href="#" className="block">
@@ -106,7 +76,7 @@ const Footer = () => {
                 <div>
                     <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
                     <div className="text-xl flex gap-3">
-                        <a href="https://www.facebook.com/darulkararabir/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                             <FaFacebook />
                         </a>
                         <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
@@ -119,31 +89,20 @@ const Footer = () => {
                             <FaTelegram />
                         </a>
                     </div>
-                    <p className="text-sm mt-2">
-                        Connect with us to stay inspired and informed.
-                    </p>
+                    <p className="text-sm mt-2">Stay connected for the latest updates.</p>
                 </div>
 
-                {/* Write for Us */}
+                {/* List Your Property */}
                 <div>
-                    <h3 className="text-lg font-semibold mb-4">Write for Us</h3>
-                    <p className="text-sm">
-                        Have valuable insights to share? Join our team of contributors.
-                    </p>
-                    <a
-                        href="#"
-                        className="mt-2 inline-block hover:underline font-medium text-sm"
-                    >
-                        Become a Writer
-                    </a>
+                    <h3 className="text-lg font-semibold mb-4">List Your Property</h3>
+                    <p className="text-sm">Reach potential tenants by listing your property on Homy.</p>
+                    <a href="#" className="mt-2 inline-block hover:underline font-medium text-sm">Get Started</a>
                 </div>
 
                 {/* Newsletter Subscription */}
                 <div>
-                    <h3 className="text-lg font-semibold mb-4">Join Our Newsletter</h3>
-                    <p className="text-sm mb-4">
-                        Get weekly updates on trending topics and expert articles.
-                    </p>
+                    <h3 className="text-lg font-semibold mb-4">Subscribe to Updates</h3>
+                    <p className="text-sm mb-4">Get insights, tips, and industry updates straight to your inbox.</p>
                     <div className="flex md:flex-col lg:flex-row lg:flex">
                         <input
                             type="email"
@@ -159,7 +118,7 @@ const Footer = () => {
 
             {/* Copyright Section */}
             <div className="bg-design-color py-4 text-center text-sm text-black">
-                &copy; 2025 Your Blog Website. All rights reserved.
+                &copy; 2025 Homy. All rights reserved.
             </div>
         </footer>
     );

@@ -39,7 +39,7 @@ export default function Apartment() {
     };
 
     return (
-        <div className="p-8 bg-design-color min-h-screen">
+        <div className="p-8 bg-design-color min-h-screen pt-28">
             {/* Search Filters */}
             <div className="mb-4 flex justify-center items-center gap-4 flex-col md:flex-row">
                 <span className="flex justify-center items-center gap-4">

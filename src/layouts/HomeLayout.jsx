@@ -5,11 +5,11 @@ import Location from "../pages/Home/Location";
 
 export default function HomeLayout() {
     return (
-        <div>
-            <Banner />
+        <div className="pt-[75px]">
+            < Banner />
             <About />
             <Coupon />
             <Location />
-        </div>
+        </div >
     )
 }
