@@ -1,4 +1,5 @@
 import { FaComments, FaEnvelope, FaPhone } from "react-icons/fa";
+import { toast } from "react-toastify";
 
 export default function Contact() {
     return (
@@ -62,13 +63,18 @@ export default function Contact() {
                 {/* Right Side - Contact Form */}
                 <div className="w-full lg:w-1/2 p-6 ">
                     <h2 className="text-3xl font-bold mb-6 text-gray-900">Send Message</h2>
-                    <form className="space-y-4">
+                    <form className="space-y-4" onSubmit={(e) => {
+                        e.preventDefault()
+                        toast.success("Message sent successfully")
+                        document.getElementById("contactForm").reset()
+                    }}>
                         <div>
                             <label className="label text-gray-700 font-semibold">Name*</label>
                             <input
                                 type="text"
                                 placeholder="Your Name*"
                                 className="input input-bordered w-full"
+                                required
                             />
                         </div>
                         <div>
@@ -77,6 +83,7 @@ export default function Contact() {
                                 type="email"
                                 placeholder="Email Address*"
                                 className="input input-bordered w-full"
+                                required
                             />
                         </div>
                         <div>
@@ -84,6 +91,7 @@ export default function Contact() {
                             <textarea
                                 placeholder="Your message*"
                                 className="textarea textarea-bordered w-full h-32"
+                                required
                             ></textarea>
                         </div>
                         <button className="btn bg-orange-500 hover:bg-orange-600 text-white w-full">
