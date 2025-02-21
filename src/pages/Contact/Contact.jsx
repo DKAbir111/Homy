@@ -1,4 +1,4 @@
-import { FaComments, FaEnvelope, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
+import { FaComments, FaEnvelope, FaPhone } from "react-icons/fa";
 
 export default function Contact() {
     return (
@@ -10,7 +10,7 @@ export default function Contact() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12 mt-20">
                     {/* Email Contact */}
-                    <div className="flex items-center justify-start gap-4">
+                    <div className="flex items-center justify-center gap-4">
                         <div className="bg-black p-4 rounded-full">
                             <FaEnvelope className="text-white text-2xl" />
                         </div>
@@ -21,7 +21,7 @@ export default function Contact() {
                     </div>
 
                     {/* Hotline Contact */}
-                    <div className="flex items-center justify-start gap-4">
+                    <div className="flex items-center justify-center gap-4">
                         <div className="bg-black p-4 rounded-full">
                             <FaPhone className="text-white text-2xl" />
                         </div>
@@ -32,7 +32,7 @@ export default function Contact() {
                     </div>
 
                     {/* Live Chat Contact */}
-                    <div className="flex items-center justify-start gap-4">
+                    <div className="flex items-center justify-center gap-4">
                         <div className="bg-black p-4 rounded-full">
                             <FaComments className="text-white text-2xl" />
                         </div>
