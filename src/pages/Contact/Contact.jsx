@@ -1,32 +1,29 @@
-import { FaMapMarkerAlt } from "react-icons/fa";
+import { FaComments, FaEnvelope, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
 
 export default function Contact() {
     return (
         <div className="min-h-screen pt-[75px]">
             <div className="w-full px-6 pt-20 bg-white text-center">
-                <h2 className="text-3xl md:text-5xl lg:text-7xl font-semibold mb-6 ">
+                <h2 className="text-3xl md:text-5xl lg:text-7xl font-semibold mb-6">
                     Questions? Feel Free to Reach Out Via Message.
                 </h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-3  gap-10 mt-20">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-12 mt-20">
                     {/* Email Contact */}
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center justify-start gap-4">
                         <div className="bg-black p-4 rounded-full">
-                            <FaMapMarkerAlt className="text-white text-2xl" />
+                            <FaEnvelope className="text-white text-2xl" />
                         </div>
                         <div className="text-left">
                             <p className="text-gray-700 font-medium">We’re always happy to help.</p>
-                            <p className="text-gray-500">darunkaras28111@gmail.com</p>
+                            <p className="text-gray-500 break-all">darunkaras28111@gmail.com</p>
                         </div>
                     </div>
 
-                    {/* Divider */}
-                    <div className="hidden lg:block border-r border-gray-300 h-10"></div>
-
                     {/* Hotline Contact */}
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center justify-start gap-4">
                         <div className="bg-black p-4 rounded-full">
-                            <FaMapMarkerAlt className="text-white text-2xl" />
+                            <FaPhone className="text-white text-2xl" />
                         </div>
                         <div className="text-left">
                             <p className="text-gray-700 font-medium">Our hotline number</p>
@@ -34,21 +31,19 @@ export default function Contact() {
                         </div>
                     </div>
 
-                    {/* Divider */}
-                    <div className="hidden lg:block border-r border-gray-300 h-10"></div>
-
                     {/* Live Chat Contact */}
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center justify-start gap-4">
                         <div className="bg-black p-4 rounded-full">
-                            <FaMapMarkerAlt className="text-white text-2xl" />
+                            <FaComments className="text-white text-2xl" />
                         </div>
                         <div className="text-left">
                             <p className="text-gray-700 font-medium">Live chat</p>
-                            <p className="text-gray-500">www.homylivechat.com</p>
+                            <p className="text-gray-500 break-all">www.homylivechat.com</p>
                         </div>
                     </div>
                 </div>
             </div>
+
 
             {/* second portion */}
             <div className="flex flex-col lg:flex-row items-center justify-center w-full min-h-screen p-6 bg-design-color gap-10 mt-20">
