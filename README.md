@@ -1,155 +1,258 @@
-# **Building Management System (BMS)** - **Homy**
+<div align="center">
 
-## **Live Demo**
-- **Frontend Live Site Link**: [https://building-management-f924c.web.app]
-- **Admin Username**: abir@gmail.com
-- **Admin Password**: Abir@1
+<img src="https://i.ibb.co.com/Z1wGBJDr/user.png" alt="Homy BMS Banner" width="100%" style="border-radius: 12px;" />
 
----
+# 🏢 Homy — Building Management System
 
-## **Project Overview**
+**A full-stack, production-ready apartment & tenant management platform**
 
-Homy is a comprehensive and fully-featured Building Management System (BMS) designed for the efficient management of apartments and tenants. The system is designed with both users and admins in mind, allowing tenants to explore available apartments, apply for leases, and make payments, while admins can manage tenants, apartments, coupons, and announcements. 
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Homy_BMS-4F46E5?style=for-the-badge)](https://building-management-f924c.web.app)
+[![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-Express-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-NoSQL-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
+[![Stripe](https://img.shields.io/badge/Stripe-Payments-635BFF?style=for-the-badge&logo=stripe&logoColor=white)](https://stripe.com/)
 
-This project utilizes modern technologies and follows industry best practices to create a secure, user-friendly, and scalable application.
-
----
-
-## **Key Features**
-
-- **User Authentication**: Secure login and registration using Firebase Authentication. Includes email/password and Google login.
-- **Apartment Listings**: View available apartments with key details such as rent, floor, and block.
-- **Agreement System**: Users can apply for apartments, and admins can manage agreement requests.
-- **Payment System**: Secure online payments integrated with Stripe. Apply coupons for discounts on rent.
-- **Admin Dashboard**: Admins can manage users, apartments, make announcements, and handle agreements.
-- **Member Dashboard**: Members can view their profile, make payments, and track payment history.
-- **Responsive Design**: Fully responsive UI, ensuring a seamless experience across mobile, tablet, and desktop.
-- **Coupon System**: Manage and apply coupons to reduce rent for tenants.
-- **Announcements**: Admins can make announcements visible to all users and members.
-- **Pagination and Search**: Apartments page includes pagination and a rent range search.
-- **JWT Authentication**: JSON Web Tokens (JWT) for secure authentication, with token storage in local storage.
-- **Error Handling**: Sweet Alerts for notifications on successful actions and error handling.
-- **Environment Variables**: Firebase and MongoDB credentials are securely stored in environment variables.
-
----
-### **User Features**:
-1. **Coupon Management**:
-   - Filter coupons by category (electronics, fashion, etc.), brand, discount percentage, and expiration date.
-   - Toggle to show only available coupons.
-   - Show recently added coupons.
-
-2. **Enhanced Authentication**:
-   - Two-factor authentication (2FA) for secure login.
-   - Social logins (Google, Facebook, etc.).
-   - Reset email for account recovery.
-
-3. **Notifications**:
-   - Real-time notifications for:
-     - New coupons matching user preferences.
-     - Coupons nearing expiration.
-     - Personalized discount alerts based on browsing history.
-
-4. **Wishlist**:
-   - Save favorite coupons for later use.
-   - Notify users when coupons in their wishlist are about to expire or have been updated.
-
-5. **User Dashboard**:
-   - Track redeemed coupons.
-   - See personal savings stats over time.
-   - Set preferences for desired discounts or categories.
-
-6. **Feedback and Ratings**:
-   - Users can rate and review the usefulness of coupons.
-   - Allow other users to sort coupons by "most helpful."
+</div>
 
 ---
 
-### **Admin Features**:
-1. **Revenue Tracking**:
-   - Detailed revenue reports.
-   - Filter by category, time period, and user demographics.
-   - Track earnings from partnerships or affiliate links.
+## 📸 Screenshots
 
-2. **User Management**:
-   - View and manage user accounts (e.g., deactivate, reactivate, etc.).
-   - Track users who frequently violate policies.
-
-3. **Coupon Analytics**:
-   - Track popularity (views, clicks, redemptions).
-   - Identify unused or underperforming coupons.
-
-4. **Advanced Coupon Management**:
-   - Batch creation/editing of coupons.
-   - Auto-disable expired coupons.
-   - Approve or reject submitted coupons by vendors.
-
-5. **Filtering and Searching**:
-   - Advanced admin filters to view coupons based on availability, expiration, and user activity.
-
-6. **Security Enhancements**:
-   - Secure admin dashboard with role-based access control.
-   - API token management and IP whitelisting.
+<table>
+  <tr>
+    <td align="center"><b>🏠 Landing Page</b></td>
+    <td align="center"><b>👤 Member Dashboard</b></td>
+    <td align="center"><b>🛡️ Admin Dashboard</b></td>
+  </tr>
+  <tr>
+    <td><img src="https://i.ibb.co.com/QFZWtrBw/landing.png" alt="Landing" width="280"/></td>
+    <td><img src="https://i.ibb.co.com/Z1wGBJDr/user.png" alt="User Dashboard" width="280"/></td>
+    <td><img src="https://i.ibb.co.com/SDvQZdb8/admin.png" alt="Admin Dashboard" width="280"/></td>
+  </tr>
+</table>
 
 ---
 
-### **API Enhancements**:
-1. **Secure API**:
-   - Implement rate-limiting and user-based API keys.
-   - Use JWT for access control, including refresh tokens for longevity.
+## 🔍 Overview
 
-2. **Server-Side Filtering**:
-   - Allow backend filtering for:
-     - Available/unavailable coupons.
-     - Coupons with specific discount ranges.
-     - Search by keywords in coupon titles or descriptions.
+**Homy** is a comprehensive Building Management System that bridges the gap between tenants and property administrators. It provides a seamless experience for browsing apartments, submitting lease agreements, making rent payments with coupon discounts, and managing the entire tenant lifecycle — all in one platform.
 
-3. **Error Reporting and Monitoring**:
-   - Real-time error tracking in APIs.
-   - Logs for failed API calls to improve debugging.
-
-## **Technologies Used**
-
-### **Frontend**
-
-- **React**: JavaScript library for building the user interface.
-- **TailwindCSS**: A utility-first CSS framework for rapid UI development.
-- **Axios**: Promise-based HTTP client for data fetching and making API calls.
-- **React Router**: Declarative routing for single-page applications.
-- **TanStack Query**: Efficient data fetching for GET requests.
-- **SweetAlert2**: Beautiful, customizable, and accessible alerts for success and error messages.
-- **Framer Motion**: Animations and transitions for a smooth, interactive experience.
-- **Leaflet**: Interactive maps for displaying the building's location.
-- **Stripe**: Payment gateway integration for handling payments.
-
-### **Backend**
-
-- **Node.js**: JavaScript runtime environment for building the backend server.
-- **Express.js**: Web framework for building APIs in Node.js.
-- **MongoDB**: NoSQL database for storing apartment and user data.
-- **Mongoose**: ODM (Object Document Mapping) tool for MongoDB in Node.js.
-- **JWT (JSON Web Token)**: Secure user authentication using JWT tokens.
-- **Firebase**: Authentication service for email/password and Google sign-in.
-- **Stripe**: Payment processing service for handling rent payments.
+> Built with a focus on security, scalability, and developer experience using a modern full-stack architecture.
 
 ---
 
-## **Important Instructions**
+## ✨ Key Features
 
-- **Admin Login**: Use the admin credentials provided above to access the admin dashboard.
-- **Firebase Authentication**: Firebase configuration must be set up for authentication. Ensure environment variables are set correctly for both the frontend and backend.
-- **Stripe Integration**: Ensure your Stripe keys are set up for the frontend to handle payments. Test the payment flow using the Stripe test mode.
-- **Pagination**: Apartments listing is paginated to show 6 apartments per page. You can modify this by adjusting the backend response.
-- **Search**: The apartments page includes a search bar that allows users to filter apartments based on rent range.
+### 🔐 Authentication & Security
+- Firebase Authentication with **Email/Password** and **Google Sign-In**
+- **JWT-based** API authorization with token storage
+- Role-based access control (Guest / Member / Admin)
+- Environment-variable-protected credentials
+
+### 🏠 Apartment Listings
+- Paginated apartment listings (6 per page)
+- **Rent-range search** and filtering
+- Detailed views with floor, block, and availability info
+- Interactive location map powered by **Leaflet**
+
+### 📋 Agreement & Lease System
+- Tenants can apply for apartments in one click
+- Admins review, approve, or reject applications
+- Prevents duplicate agreements per tenant
+
+### 💳 Payments & Coupons
+- **Stripe-integrated** rent payment flow (test mode supported)
+- Coupon system for percentage-based rent discounts
+- Full payment history tracking for members
+
+### 👨‍💼 Admin Dashboard
+- Manage all users (promote to member, remove access)
+- Apartment and agreement management
+- Publish announcements to all members
+- Coupon creation and lifecycle management
+
+### 📢 Announcements
+- Admins broadcast notices to all members
+- Members see announcements on their personalized dashboard
 
 ---
 
-## **Contributions**
+## 🛠️ Tech Stack
 
-We welcome contributions to this project! Please follow the steps below:
+### Frontend
+| Technology | Purpose |
+|---|---|
+| **React** | Component-based UI |
+| **TailwindCSS** | Utility-first styling |
+| **React Router** | Client-side routing |
+| **TanStack Query** | Server state & data fetching |
+| **Axios** | HTTP client |
+| **Stripe.js** | Payment UI integration |
+| **Framer Motion** | Animations & transitions |
+| **Leaflet** | Interactive maps |
+| **SweetAlert2** | Notification alerts |
 
-1. Fork the repository.
-2. Clone your forked repository to your local machine.
-3. Create a new branch (`git checkout -b feature-xyz`).
-4. Commit your changes (`git commit -am 'Add feature XYZ'`).
-5. Push to the branch (`git push origin feature-xyz`).
-6. Create a new Pull Request.
+### Backend
+| Technology | Purpose |
+|---|---|
+| **Node.js + Express** | REST API server |
+| **MongoDB + Mongoose** | Database & ODM |
+| **Firebase Admin** | Authentication verification |
+| **JWT** | Stateless authorization |
+| **Stripe** | Payment processing |
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js v18+
+- MongoDB (local or Atlas)
+- Firebase project
+- Stripe account
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/homy-bms.git
+cd homy-bms
+```
+
+### 2. Setup Environment Variables
+
+**Frontend** — create `.env` in `/client`:
+```env
+VITE_FIREBASE_API_KEY=your_firebase_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+VITE_FIREBASE_PROJECT_ID=your_project_id
+VITE_STRIPE_PUBLIC_KEY=pk_test_xxxxxxxx
+VITE_API_BASE_URL=http://localhost:5000
+```
+
+**Backend** — create `.env` in `/server`:
+```env
+PORT=5000
+MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/homy
+JWT_SECRET=your_jwt_secret
+STRIPE_SECRET_KEY=sk_test_xxxxxxxx
+FIREBASE_ADMIN_SDK=path/to/serviceAccountKey.json
+```
+
+### 3. Install Dependencies
+
+```bash
+# Backend
+cd server && npm install
+
+# Frontend
+cd ../client && npm install
+```
+
+### 4. Run the App
+
+```bash
+# Start backend
+cd server && npm start
+
+# Start frontend (new terminal)
+cd client && npm run dev
+```
+
+Frontend will be live at `http://localhost:5173`
+
+---
+
+## 🔑 Demo Credentials
+
+| Role | Email | Password |
+|---|---|---|
+| **Admin** | abir@gmail.com | Abir@1 |
+| **Member** | (register any account, admin promotes) | — |
+
+> 💳 **Stripe Test Card**: `4242 4242 4242 4242` — any future date, any CVC
+
+---
+
+## 📁 Project Structure
+
+```
+homy-bms/
+├── client/                  # React frontend
+│   ├── src/
+│   │   ├── components/      # Shared UI components
+│   │   ├── pages/           # Route-level pages
+│   │   │   ├── Admin/       # Admin dashboard pages
+│   │   │   ├── Member/      # Member dashboard pages
+│   │   │   └── Public/      # Landing, Apartments, etc.
+│   │   ├── hooks/           # Custom React hooks
+│   │   ├── providers/       # Context providers (Auth, etc.)
+│   │   └── utils/           # Axios instance, helpers
+│   └── public/
+│
+└── server/                  # Express backend
+    ├── routes/              # API route handlers
+    ├── middleware/          # JWT verification, role guards
+    ├── models/              # Mongoose schemas
+    └── index.js             # Entry point
+```
+
+---
+
+## 🗺️ API Endpoints (Sample)
+
+| Method | Endpoint | Access | Description |
+|---|---|---|---|
+| `GET` | `/apartments` | Public | List all apartments (paginated) |
+| `POST` | `/agreements` | Member | Submit lease agreement |
+| `GET` | `/agreements` | Admin | View all agreements |
+| `PATCH` | `/agreements/:id` | Admin | Accept / reject agreement |
+| `POST` | `/payments` | Member | Process rent payment |
+| `GET` | `/payments/history` | Member | Member payment history |
+| `GET` | `/users` | Admin | All users |
+| `PATCH` | `/users/:id/role` | Admin | Update user role |
+| `POST` | `/coupons` | Admin | Create discount coupon |
+| `POST` | `/announcements` | Admin | Post announcement |
+
+---
+
+## 🔮 Roadmap
+
+- [ ] Two-factor authentication (2FA)
+- [ ] Real-time notifications (WebSocket / Firebase)
+- [ ] Coupon wishlist & expiry alerts
+- [ ] Revenue analytics dashboard for admins
+- [ ] Batch coupon creation & auto-expiry
+- [ ] Maintenance request ticketing system
+- [ ] Mobile app (React Native)
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feature/your-feature-name`
+3. Commit your changes: `git commit -m "feat: add your feature"`
+4. Push to the branch: `git push origin feature/your-feature-name`
+5. Open a Pull Request
+
+Please follow [Conventional Commits](https://www.conventionalcommits.org/) for commit messages.
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License** — see the [LICENSE](./LICENSE) file for details.
+
+---
+
+<div align="center">
+
+Made with ❤️ by **Abir**
+
+⭐ If you found this project useful, consider giving it a star!
+
+[![GitHub stars](https://img.shields.io/github/stars/your-username/homy-bms?style=social)](https://github.com/your-username/homy-bms)
+
+</div>
