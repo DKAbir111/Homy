@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://i.ibb.co.com/Z1wGBJDr/user.png" alt="Homy BMS Banner" width="100%" style="border-radius: 12px;" />
+<img src="https://i.ibb.co.com/QFZWtrBw/landing.png" alt="Homy BMS Banner" width="100%" style="border-radius: 12px;" />
 
 # 🏢 Homy — Building Management System
 
